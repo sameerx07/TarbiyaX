@@ -1,12 +1,32 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
+import { Navigation } from "@/components/Navigation";
+import { HeroSection } from "@/components/HeroSection";
+import { AlertBanner } from "@/components/AlertBanner";
+import { AboutSection } from "@/components/AboutSection";
+import { WhySection } from "@/components/WhySection";
+import { CurriculumSection } from "@/components/CurriculumSection";
+import { TeachersSection } from "@/components/TeachersSection";
+import { BlogSection } from "@/components/BlogSection";
+import { ContactSection } from "@/components/ContactSection";
+import { Chatbot } from "@/components/Chatbot";
+import { Footer } from "@/components/Footer";
 
 const Index = () => {
+  useSmoothScroll();
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen">
+      <Navigation />
+      <HeroSection />
+      <AlertBanner />
+      <AboutSection />
+      <WhySection />
+      <CurriculumSection />
+      <TeachersSection />
+      <BlogSection />
+      <ContactSection />
+      <Chatbot />
+      <Footer />
     </div>
   );
 };
