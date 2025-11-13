@@ -18,6 +18,12 @@ const carouselTexts = [
   },
 ];
 
+const backgroundImages = [
+  "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1920&q=80",
+  "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=1920&q=80",
+  "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=1920&q=80",
+];
+
 const floatingIcons = [
   { Icon: BookOpen, x: "10%", y: "20%", delay: 0 },
   { Icon: Users, x: "85%", y: "30%", delay: 0.5 },
@@ -36,8 +42,23 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Animated Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/10 to-background" />
+      {/* Background Image Carousel */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentIndex}
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.95 }}
+          transition={{ duration: 1.5, ease: "easeInOut" }}
+          className="absolute inset-0"
+        >
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${backgroundImages[currentIndex]})` }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-background/60 to-background/80" />
+        </motion.div>
+      </AnimatePresence>
 
       {/* Floating Elements */}
       {floatingIcons.map(({ Icon, x, y, delay }, index) => (
