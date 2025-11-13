@@ -19,6 +19,7 @@ export function Navigation() {
   }, []);
 
   const navLinks = [
+    { href: "#", label: "Home" },
     { href: "#about", label: "About" },
     { href: "#why", label: "Why Us" },
     { href: "#curriculum", label: "Curriculum" },

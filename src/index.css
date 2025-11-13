@@ -51,28 +51,28 @@
   .dark {
     /* Dark Mode - Deep & Sophisticated */
     --background: 228 40% 8%;    /* Very dark navy */
-    --foreground: 344 100% 97%;  /* Soft rose for text */
+    --foreground: 0 0% 95%;      /* Light grey for readable text */
 
     --card: 228 35% 12%;
-    --card-foreground: 344 100% 97%;
+    --card-foreground: 0 0% 95%;
 
     --popover: 228 35% 12%;
-    --popover-foreground: 344 100% 97%;
+    --popover-foreground: 0 0% 95%;
 
     /* Primary - Bright Teal (Stands out in dark) */
     --primary: 162 55% 45%;      /* Lighter teal for visibility */
-    --primary-foreground: 228 40% 8%;
+    --primary-foreground: 0 0% 100%;
 
     /* Secondary - Warm Taupe (Subtle accent) */
     --secondary: 18 25% 60%;     /* Lighter taupe */
-    --secondary-foreground: 228 40% 8%;
+    --secondary-foreground: 0 0% 100%;
 
     /* Accent - Lighter Navy */
     --accent: 228 28% 30%;
-    --accent-foreground: 344 100% 97%;
+    --accent-foreground: 0 0% 95%;
 
     --muted: 228 30% 15%;
-    --muted-foreground: 344 50% 70%;
+    --muted-foreground: 0 0% 70%;
 
     --destructive: 0 62.8% 50%;
     --destructive-foreground: 0 0% 100%;
@@ -96,12 +96,19 @@
   body {
     @apply bg-background text-foreground font-body antialiased;
     font-family: 'Figtree', sans-serif;
+    font-size: 17px;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading;
     font-family: 'Figtree', sans-serif;
   }
+
+  h1 { font-size: 3rem; }
+  h2 { font-size: 2.25rem; }
+  h3 { font-size: 1.875rem; }
+  h4 { font-size: 1.5rem; }
+  p { font-size: 1.0625rem; line-height: 1.7; }
 }
 
 @layer components {
