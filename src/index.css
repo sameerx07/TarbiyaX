@@ -8,101 +8,107 @@
 
 @layer base {
   :root {
-    /* Light Mode - Custom 4-Color Palette */
-    /* Using: #BFDFED (light blue), #3E8274 (teal), #EFA7A2 (coral), #602F4C (dark purple) */
+    /* Light Mode - Professional Color System */
+    /* Text: Pure Black | UI Colors: #3E8274 (teal), #602F4C (purple), #EFA7A2 (coral), #BFDFED (sky blue) */
     
-    --background: 196 58% 96%;        /* Very light blue #F5FBFD */
-    --foreground: 323 34% 28%;        /* Dark purple #602F4C for text */
+    --background: 0 0% 100%;          /* Pure white */
+    --foreground: 0 0% 9%;            /* Pure black for content */
 
-    --card: 196 58% 98%;
-    --card-foreground: 323 34% 28%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
 
-    --popover: 196 58% 98%;
-    --popover-foreground: 323 34% 28%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
 
-    /* Primary - Teal */
+    /* Primary - Teal (Main CTAs) */
     --primary: 165 36% 38%;           /* #3E8274 */
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Coral */
-    --secondary: 5 70% 79%;           /* #EFA7A2 */
-    --secondary-foreground: 323 34% 28%;
+    /* Secondary - Purple (Secondary actions) */
+    --secondary: 323 34% 28%;         /* #602F4C */
+    --secondary-foreground: 0 0% 100%;
 
-    /* Accent - Light Blue */
+    /* Accent - Sky Blue (Highlights) */
     --accent: 196 58% 84%;            /* #BFDFED */
-    --accent-foreground: 323 34% 28%;
+    --accent-foreground: 0 0% 9%;
 
-    /* Muted */
-    --muted: 196 58% 90%;
-    --muted-foreground: 323 34% 45%;
+    /* Muted - Light Grey */
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 40%;
 
-    --destructive: 5 70% 65%;
-    --destructive-foreground: 0 0% 100%;
+    /* Destructive - Coral */
+    --destructive: 5 70% 79%;         /* #EFA7A2 */
+    --destructive-foreground: 0 0% 9%;
 
-    --border: 196 58% 84%;
-    --input: 196 58% 84%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
     --ring: 165 36% 38%;
 
     --radius: 0.75rem;
 
     /* Glass Card Variables */
-    --glass-bg: 196 58% 98% / 0.7;
-    --glass-border: 196 58% 84% / 0.4;
+    --glass-bg: 0 0% 100% / 0.7;
+    --glass-border: 0 0% 90% / 0.4;
     --glass-shadow: 0 8px 32px 0 / 0.1;
     
-    /* Gradient Variables */
-    --gradient-primary: linear-gradient(135deg, #3E8274, #2A6859);
-    --gradient-secondary: linear-gradient(135deg, #EFA7A2, #E88F89);
-    --gradient-accent: linear-gradient(135deg, #BFDFED, #A5D4E8);
-    --gradient-hero: linear-gradient(135deg, #3E8274 0%, #602F4C 100%);
+    /* Modern Gradient Combinations */
+    --gradient-primary: linear-gradient(135deg, #3E8274 0%, #2A5D50 100%);
+    --gradient-secondary: linear-gradient(135deg, #602F4C 0%, #4A2539 100%);
+    --gradient-accent: linear-gradient(135deg, #BFDFED 0%, #9FCCE0 100%);
+    --gradient-hero: linear-gradient(135deg, #3E8274 0%, #602F4C 50%, #2A5D50 100%);
+    --gradient-premium: linear-gradient(135deg, #EFA7A2 0%, #3E8274 50%, #602F4C 100%);
+    --gradient-soft: linear-gradient(135deg, #BFDFED 0%, #EFA7A2 100%);
   }
 
   .dark {
-    /* Dark Mode - Custom 4-Color Palette */
-    /* Using: #602F4C (dark purple), #3E8274 (teal), #EFA7A2 (coral), #BFDFED (light blue) */
+    /* Dark Mode - Professional Color System */
+    /* Text: Light Grey | UI Colors: Brighter versions of the 4 colors */
     
-    --background: 323 34% 18%;        /* Darker purple #3D1F2F */
-    --foreground: 196 58% 92%;        /* Light blue-white #E8F4F9 */
+    --background: 0 0% 7%;            /* Almost black #121212 */
+    --foreground: 0 0% 95%;           /* Light grey for content */
 
-    --card: 323 34% 22%;
-    --card-foreground: 196 58% 92%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 323 34% 22%;
-    --popover-foreground: 196 58% 92%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 95%;
 
-    /* Primary - Teal */
-    --primary: 165 36% 48%;           /* Lighter teal #4FA68F */
+    /* Primary - Bright Teal */
+    --primary: 165 45% 50%;           /* #45A88E - brighter teal */
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Coral */
-    --secondary: 5 70% 79%;           /* #EFA7A2 */
-    --secondary-foreground: 323 34% 18%;
+    /* Secondary - Bright Purple */
+    --secondary: 323 45% 45%;         /* #874367 - brighter purple */
+    --secondary-foreground: 0 0% 100%;
 
-    /* Accent - Light Blue */
-    --accent: 196 58% 74%;            /* Slightly darker #9FD1E6 */
-    --accent-foreground: 323 34% 18%;
+    /* Accent - Bright Sky Blue */
+    --accent: 196 65% 75%;            /* #9FD9F1 - brighter sky */
+    --accent-foreground: 0 0% 7%;
 
     /* Muted */
-    --muted: 323 34% 25%;
-    --muted-foreground: 196 58% 75%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
 
-    --destructive: 5 70% 65%;
-    --destructive-foreground: 0 0% 100%;
+    /* Destructive - Coral */
+    --destructive: 5 70% 79%;         /* #EFA7A2 */
+    --destructive-foreground: 0 0% 7%;
 
-    --border: 323 34% 28%;
-    --input: 323 34% 28%;
-    --ring: 165 36% 48%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 165 45% 50%;
 
     /* Glass Card Variables - Dark */
-    --glass-bg: 323 34% 22% / 0.7;
-    --glass-border: 323 34% 35% / 0.4;
+    --glass-bg: 0 0% 10% / 0.7;
+    --glass-border: 0 0% 25% / 0.4;
     --glass-shadow: 0 8px 32px 0 / 0.3;
     
-    /* Gradient Variables */
-    --gradient-primary: linear-gradient(135deg, #4FA68F, #3E8274);
-    --gradient-secondary: linear-gradient(135deg, #EFA7A2, #E88F89);
-    --gradient-accent: linear-gradient(135deg, #9FD1E6, #BFDFED);
-    --gradient-hero: linear-gradient(135deg, #3E8274 0%, #602F4C 100%);
+    /* Modern Gradient Combinations - Dark */
+    --gradient-primary: linear-gradient(135deg, #45A88E 0%, #36856F 100%);
+    --gradient-secondary: linear-gradient(135deg, #874367 0%, #6A3451 100%);
+    --gradient-accent: linear-gradient(135deg, #9FD9F1 0%, #7FC8E8 100%);
+    --gradient-hero: linear-gradient(135deg, #45A88E 0%, #874367 50%, #36856F 100%);
+    --gradient-premium: linear-gradient(135deg, #EFA7A2 0%, #45A88E 50%, #874367 100%);
+    --gradient-soft: linear-gradient(135deg, #9FD9F1 0%, #EFA7A2 100%);
   }
 }
 
