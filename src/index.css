@@ -8,107 +8,97 @@
 
 @layer base {
   :root {
-    /* Light Mode - Fresh Color System */
-    /* Text: Pure Black | UI Colors: #5FC9A7 (mint), #FCC2F4 (pink), #D7E8F8 (sky), #FFDBC4 (peach) */
-    
-    --background: 0 0% 100%;          /* Pure white */
-    --foreground: 0 0% 9%;            /* Pure black for content */
+    /* Light Mode - Modern Blue & Coral Theme */
+    --background: 0 0% 98%;           /* Clean white */
+    --foreground: 222 47% 11%;        /* Deep blue-black for text */
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 9%;
+    --card-foreground: 222 47% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 9%;
+    --popover-foreground: 222 47% 11%;
 
-    /* Primary - Mint Green (Main CTAs & Headings) */
-    --primary: 162 56% 58%;           /* #5FC9A7 */
-    --primary-foreground: 0 0% 9%;
+    /* Primary - Vibrant Blue */
+    --primary: 217 91% 60%;           /* Modern blue #3B82F6 */
+    --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Pink (Secondary actions & Headings) */
-    --secondary: 308 92% 88%;         /* #FCC2F4 */
-    --secondary-foreground: 0 0% 9%;
+    /* Secondary - Warm Coral */
+    --secondary: 14 100% 66%;         /* Coral #FF7A59 */
+    --secondary-foreground: 0 0% 100%;
 
-    /* Accent - Sky Blue (Highlights & Accents) */
-    --accent: 204 62% 91%;            /* #D7E8F8 */
-    --accent-foreground: 0 0% 9%;
+    /* Accent - Royal Purple */
+    --accent: 262 83% 58%;            /* Purple #8B5CF6 */
+    --accent-foreground: 0 0% 100%;
 
-    /* Muted - Light Grey */
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 40%;
+    /* Muted - Soft Grey */
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
 
-    /* Destructive - Peach */
-    --destructive: 25 100% 88%;       /* #FFDBC4 */
-    --destructive-foreground: 0 0% 9%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 162 56% 58%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 217 91% 60%;
 
     --radius: 0.75rem;
 
     /* Glass Card Variables */
     --glass-bg: 0 0% 100% / 0.7;
-    --glass-border: 0 0% 90% / 0.4;
+    --glass-border: 220 13% 91% / 0.4;
     --glass-shadow: 0 8px 32px 0 / 0.1;
     
-    /* Modern Gradient Combinations */
-    --gradient-primary: linear-gradient(135deg, #5FC9A7 0%, #4AB393 100%);
-    --gradient-secondary: linear-gradient(135deg, #FCC2F4 0%, #F9A8E8 100%);
-    --gradient-accent: linear-gradient(135deg, #D7E8F8 0%, #BFDDF2 100%);
-    --gradient-hero: linear-gradient(135deg, #5FC9A7 0%, #FCC2F4 50%, #D7E8F8 100%);
-    --gradient-premium: linear-gradient(135deg, #FFDBC4 0%, #5FC9A7 50%, #FCC2F4 100%);
-    --gradient-soft: linear-gradient(135deg, #D7E8F8 0%, #FFDBC4 100%);
+    /* Gradient Variables */
+    --gradient-primary: linear-gradient(135deg, #3B82F6, #2563EB);
+    --gradient-secondary: linear-gradient(135deg, #FF7A59, #F97316);
+    --gradient-accent: linear-gradient(135deg, #8B5CF6, #7C3AED);
+    --gradient-hero: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
   }
 
   .dark {
-    /* Dark Mode - Fresh Color System */
-    /* Text: Light Grey | UI Colors: Deeper, vibrant versions */
-    
-    --background: 0 0% 7%;            /* Almost black #121212 */
-    --foreground: 0 0% 95%;           /* Light grey for content */
+    /* Dark Mode - Cyan & Amber Theme */
+    --background: 222 47% 11%;        /* Deep dark blue */
+    --foreground: 210 40% 98%;        /* Almost white */
 
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 95%;
+    --card: 222 47% 15%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 10%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 222 47% 15%;
+    --popover-foreground: 210 40% 98%;
 
-    /* Primary - Deep Mint Green (Headings & CTAs) */
-    --primary: 162 60% 45%;           /* Deeper mint */
+    /* Primary - Bright Cyan */
+    --primary: 189 94% 43%;           /* Cyan #06B6D4 */
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Vibrant Pink (Headings & Buttons) */
-    --secondary: 308 85% 75%;         /* Vibrant pink */
-    --secondary-foreground: 0 0% 7%;
+    /* Secondary - Warm Amber */
+    --secondary: 38 92% 50%;          /* Amber #F59E0B */
+    --secondary-foreground: 0 0% 100%;
 
-    /* Accent - Deep Sky Blue */
-    --accent: 204 55% 70%;            /* Deep sky */
-    --accent-foreground: 0 0% 7%;
+    /* Accent - Vibrant Violet */
+    --accent: 271 91% 65%;            /* Violet #A78BFA */
+    --accent-foreground: 0 0% 100%;
 
-    /* Muted */
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
+    /* Muted - Dark Grey */
+    --muted: 222 47% 20%;
+    --muted-foreground: 210 40% 70%;
 
-    /* Destructive - Warm Peach */
-    --destructive: 25 95% 75%;        /* Warm peach */
-    --destructive-foreground: 0 0% 7%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 162 60% 45%;
+    --border: 222 47% 20%;
+    --input: 222 47% 20%;
+    --ring: 189 94% 43%;
 
     /* Glass Card Variables - Dark */
-    --glass-bg: 0 0% 10% / 0.7;
-    --glass-border: 0 0% 25% / 0.4;
+    --glass-bg: 222 47% 15% / 0.7;
+    --glass-border: 222 47% 25% / 0.4;
     --glass-shadow: 0 8px 32px 0 / 0.3;
     
-    /* Modern Gradient Combinations - Dark */
-    --gradient-primary: linear-gradient(135deg, #3FB594 0%, #2E8A70 100%);
-    --gradient-secondary: linear-gradient(135deg, #F9A8E8 0%, #E580D5 100%);
-    --gradient-accent: linear-gradient(135deg, #A8D5F0 0%, #85C4E6 100%);
-    --gradient-hero: linear-gradient(135deg, #3FB594 0%, #F9A8E8 50%, #A8D5F0 100%);
-    --gradient-premium: linear-gradient(135deg, #FFCBA8 0%, #3FB594 50%, #F9A8E8 100%);
-    --gradient-soft: linear-gradient(135deg, #A8D5F0 0%, #FFCBA8 100%);
+    /* Gradient Variables */
+    --gradient-primary: linear-gradient(135deg, #06B6D4, #0891B2);
+    --gradient-secondary: linear-gradient(135deg, #F59E0B, #D97706);
+    --gradient-accent: linear-gradient(135deg, #A78BFA, #8B5CF6);
+    --gradient-hero: linear-gradient(135deg, #06B6D4 0%, #A78BFA 100%);
   }
 }
 
