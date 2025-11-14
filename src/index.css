@@ -8,8 +8,8 @@
 
 @layer base {
   :root {
-    /* Light Mode - Professional Color System */
-    /* Text: Pure Black | UI Colors: #3E8274 (teal), #602F4C (purple), #EFA7A2 (coral), #BFDFED (sky blue) */
+    /* Light Mode - Fresh Color System */
+    /* Text: Pure Black | UI Colors: #5FC9A7 (mint), #FCC2F4 (pink), #D7E8F8 (sky), #FFDBC4 (peach) */
     
     --background: 0 0% 100%;          /* Pure white */
     --foreground: 0 0% 9%;            /* Pure black for content */
@@ -20,29 +20,29 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 9%;
 
-    /* Primary - Teal (Main CTAs) */
-    --primary: 165 36% 38%;           /* #3E8274 */
-    --primary-foreground: 0 0% 100%;
+    /* Primary - Mint Green (Main CTAs & Headings) */
+    --primary: 162 56% 58%;           /* #5FC9A7 */
+    --primary-foreground: 0 0% 9%;
 
-    /* Secondary - Purple (Secondary actions) */
-    --secondary: 323 34% 28%;         /* #602F4C */
-    --secondary-foreground: 0 0% 100%;
+    /* Secondary - Pink (Secondary actions & Headings) */
+    --secondary: 308 92% 88%;         /* #FCC2F4 */
+    --secondary-foreground: 0 0% 9%;
 
-    /* Accent - Sky Blue (Highlights) */
-    --accent: 196 58% 84%;            /* #BFDFED */
+    /* Accent - Sky Blue (Highlights & Accents) */
+    --accent: 204 62% 91%;            /* #D7E8F8 */
     --accent-foreground: 0 0% 9%;
 
     /* Muted - Light Grey */
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 40%;
 
-    /* Destructive - Coral */
-    --destructive: 5 70% 79%;         /* #EFA7A2 */
+    /* Destructive - Peach */
+    --destructive: 25 100% 88%;       /* #FFDBC4 */
     --destructive-foreground: 0 0% 9%;
 
     --border: 0 0% 90%;
     --input: 0 0% 90%;
-    --ring: 165 36% 38%;
+    --ring: 162 56% 58%;
 
     --radius: 0.75rem;
 
@@ -52,17 +52,17 @@
     --glass-shadow: 0 8px 32px 0 / 0.1;
     
     /* Modern Gradient Combinations */
-    --gradient-primary: linear-gradient(135deg, #3E8274 0%, #2A5D50 100%);
-    --gradient-secondary: linear-gradient(135deg, #602F4C 0%, #4A2539 100%);
-    --gradient-accent: linear-gradient(135deg, #BFDFED 0%, #9FCCE0 100%);
-    --gradient-hero: linear-gradient(135deg, #3E8274 0%, #602F4C 50%, #2A5D50 100%);
-    --gradient-premium: linear-gradient(135deg, #EFA7A2 0%, #3E8274 50%, #602F4C 100%);
-    --gradient-soft: linear-gradient(135deg, #BFDFED 0%, #EFA7A2 100%);
+    --gradient-primary: linear-gradient(135deg, #5FC9A7 0%, #4AB393 100%);
+    --gradient-secondary: linear-gradient(135deg, #FCC2F4 0%, #F9A8E8 100%);
+    --gradient-accent: linear-gradient(135deg, #D7E8F8 0%, #BFDDF2 100%);
+    --gradient-hero: linear-gradient(135deg, #5FC9A7 0%, #FCC2F4 50%, #D7E8F8 100%);
+    --gradient-premium: linear-gradient(135deg, #FFDBC4 0%, #5FC9A7 50%, #FCC2F4 100%);
+    --gradient-soft: linear-gradient(135deg, #D7E8F8 0%, #FFDBC4 100%);
   }
 
   .dark {
-    /* Dark Mode - Professional Color System */
-    /* Text: Light Grey | UI Colors: Brighter versions of the 4 colors */
+    /* Dark Mode - Fresh Color System */
+    /* Text: Light Grey | UI Colors: Deeper, vibrant versions */
     
     --background: 0 0% 7%;            /* Almost black #121212 */
     --foreground: 0 0% 95%;           /* Light grey for content */
@@ -73,29 +73,29 @@
     --popover: 0 0% 10%;
     --popover-foreground: 0 0% 95%;
 
-    /* Primary - Bright Teal */
-    --primary: 165 45% 50%;           /* #45A88E - brighter teal */
+    /* Primary - Deep Mint Green (Headings & CTAs) */
+    --primary: 162 60% 45%;           /* Deeper mint */
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Bright Purple */
-    --secondary: 323 45% 45%;         /* #874367 - brighter purple */
-    --secondary-foreground: 0 0% 100%;
+    /* Secondary - Vibrant Pink (Headings & Buttons) */
+    --secondary: 308 85% 75%;         /* Vibrant pink */
+    --secondary-foreground: 0 0% 7%;
 
-    /* Accent - Bright Sky Blue */
-    --accent: 196 65% 75%;            /* #9FD9F1 - brighter sky */
+    /* Accent - Deep Sky Blue */
+    --accent: 204 55% 70%;            /* Deep sky */
     --accent-foreground: 0 0% 7%;
 
     /* Muted */
     --muted: 0 0% 15%;
     --muted-foreground: 0 0% 65%;
 
-    /* Destructive - Coral */
-    --destructive: 5 70% 79%;         /* #EFA7A2 */
+    /* Destructive - Warm Peach */
+    --destructive: 25 95% 75%;        /* Warm peach */
     --destructive-foreground: 0 0% 7%;
 
     --border: 0 0% 20%;
     --input: 0 0% 20%;
-    --ring: 165 45% 50%;
+    --ring: 162 60% 45%;
 
     /* Glass Card Variables - Dark */
     --glass-bg: 0 0% 10% / 0.7;
@@ -103,12 +103,12 @@
     --glass-shadow: 0 8px 32px 0 / 0.3;
     
     /* Modern Gradient Combinations - Dark */
-    --gradient-primary: linear-gradient(135deg, #45A88E 0%, #36856F 100%);
-    --gradient-secondary: linear-gradient(135deg, #874367 0%, #6A3451 100%);
-    --gradient-accent: linear-gradient(135deg, #9FD9F1 0%, #7FC8E8 100%);
-    --gradient-hero: linear-gradient(135deg, #45A88E 0%, #874367 50%, #36856F 100%);
-    --gradient-premium: linear-gradient(135deg, #EFA7A2 0%, #45A88E 50%, #874367 100%);
-    --gradient-soft: linear-gradient(135deg, #9FD9F1 0%, #EFA7A2 100%);
+    --gradient-primary: linear-gradient(135deg, #3FB594 0%, #2E8A70 100%);
+    --gradient-secondary: linear-gradient(135deg, #F9A8E8 0%, #E580D5 100%);
+    --gradient-accent: linear-gradient(135deg, #A8D5F0 0%, #85C4E6 100%);
+    --gradient-hero: linear-gradient(135deg, #3FB594 0%, #F9A8E8 50%, #A8D5F0 100%);
+    --gradient-premium: linear-gradient(135deg, #FFCBA8 0%, #3FB594 50%, #F9A8E8 100%);
+    --gradient-soft: linear-gradient(135deg, #A8D5F0 0%, #FFCBA8 100%);
   }
 }
 
