@@ -28,6 +28,27 @@ export function Navigation() {
     { href: "#contact", label: "Contact" },
   ];
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+    
+    if (href === "#") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      const element = document.querySelector(href);
+      if (element) {
+        const offset = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }
+    }
+  };
+
   return (
     <motion.header
       initial={{ y: -100 }}
@@ -55,6 +76,7 @@ export function Navigation() {
               <a
                 key={link.href}
                 href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className="text-sm font-medium hover:text-primary transition-colors relative group"
               >
                 {link.label}
@@ -111,7 +133,7 @@ export function Navigation() {
                   key={link.href}
                   href={link.href}
                   className="py-2 text-sm font-medium hover:text-primary transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => handleNavClick(e, link.href)}
                 >
                   {link.label}
                 </a>

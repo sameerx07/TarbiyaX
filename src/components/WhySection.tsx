@@ -79,18 +79,19 @@ export function WhySection() {
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              initial={{ opacity: 0, y: -30, rotateX: -15 }}
+              animate={isInView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
+              transition={{ duration: 0.7, delay: index * 0.1, ease: "easeOut" }}
               whileHover={{ y: -8 }}
               className="glass-card p-8 group cursor-pointer"
+              style={{ transformStyle: "preserve-3d" }}
             >
               <motion.div
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.6 }}
-                className="w-14 h-14 rounded-2xl bg-secondary/20 flex items-center justify-center mb-6 group-hover:bg-secondary group-hover:text-secondary-foreground transition-all"
+                className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary via-secondary to-accent flex items-center justify-center mb-6 group-hover:shadow-xl transition-all"
               >
-                <feature.icon className="w-7 h-7 text-secondary group-hover:text-secondary-foreground" />
+                <feature.icon className="w-7 h-7 text-white" />
               </motion.div>
 
               <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-secondary transition-colors">
