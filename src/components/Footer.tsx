@@ -150,12 +150,12 @@ export function Footer() {
               © {new Date().getFullYear()} Nur Al-Ilm Islamic Academy. All rights reserved.
             </p>
             <div className="flex gap-6">
-              <a href="#" className="text-sm text-primary-foreground/70 hover:text-background transition-colors">
+              <Link to="/privacy-policy" className="text-sm text-primary-foreground/70 hover:text-background transition-colors">
                 Privacy Policy
-              </a>
-              <a href="#" className="text-sm text-primary-foreground/70 hover:text-background transition-colors">
+              </Link>
+              <Link to="/terms-of-service" className="text-sm text-primary-foreground/70 hover:text-background transition-colors">
                 Terms of Service
-              </a>
+              </Link>
               <a href="#" className="text-sm text-primary-foreground/70 hover:text-background transition-colors">
                 Accessibility
               </a>
