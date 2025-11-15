@@ -21,7 +21,7 @@ export function AboutSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" ref={ref} className="py-24 relative overflow-hidden">
+    <section id="about" ref={ref} className="py-24 relative overflow-hidden bg-gradient-to-br from-accent/10 via-background to-muted/20">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Text Content */}
@@ -43,7 +43,7 @@ export function AboutSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3 }}
-              className="text-4xl sm:text-5xl font-bold mt-4 mb-6"
+              className="text-4xl sm:text-5xl font-bold mt-4 mb-6 text-foreground"
             >
               Inspiring Young Muslims to Excel
             </motion.h2>

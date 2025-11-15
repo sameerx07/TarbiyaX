@@ -41,7 +41,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-br from-muted/30 via-background to-primary/10">
       {/* Background Image Carousel */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -56,7 +56,7 @@ export function HeroSection() {
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${backgroundImages[currentIndex]})` }}
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-background/60 to-background/80" />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-background/70 to-accent/20" />
         </motion.div>
       </AnimatePresence>
 
@@ -64,7 +64,7 @@ export function HeroSection() {
       {floatingIcons.map(({ Icon, x, y, delay }, index) => (
         <motion.div
           key={index}
-          className="absolute text-primary/20 hidden md:block"
+          className="absolute text-secondary/30 hidden md:block"
           style={{ left: x, top: y }}
           animate={{
             y: [0, -20, 0],
@@ -96,10 +96,10 @@ export function HeroSection() {
                 className="text-center"
                 style={{ transformStyle: "preserve-3d" }}
               >
-                <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-4 text-primary">
+                <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-4 text-foreground">
                   {carouselTexts[currentIndex].title}
                 </h1>
-                <p className="text-xl sm:text-2xl text-muted-foreground">
+                <p className="text-xl sm:text-2xl text-foreground/80">
                   {carouselTexts[currentIndex].subtitle}
                 </p>
               </motion.div>
@@ -130,7 +130,7 @@ export function HeroSection() {
           >
             <Button
               size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6"
+              className="text-lg px-8 py-6 shadow-xl"
               asChild
             >
               <a href="#contact">
@@ -140,11 +140,13 @@ export function HeroSection() {
             </Button>
             <Button
               size="lg"
-              variant="outline"
-              className="text-lg px-8 py-6 glass-card"
+              variant="secondary"
+              className="text-lg px-8 py-6 shadow-xl"
               asChild
             >
-              <a href="#about">Learn More</a>
+              <a href="#about">
+                Learn More
+              </a>
             </Button>
           </motion.div>
 

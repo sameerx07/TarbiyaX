@@ -53,7 +53,7 @@ export function WhySection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="why" ref={ref} className="py-24 bg-muted/30">
+    <section id="why" ref={ref} className="py-24 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div
@@ -62,10 +62,10 @@ export function WhySection() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider">
+          <span className="text-secondary font-semibold text-sm uppercase tracking-wider">
             Why Choose Us
           </span>
-          <h2 className="text-4xl sm:text-5xl font-bold mt-4 mb-6">
+          <h2 className="text-4xl sm:text-5xl font-bold mt-4 mb-6 text-foreground">
             Excellence in Every Aspect
           </h2>
           <p className="text-lg text-muted-foreground">
@@ -88,12 +88,12 @@ export function WhySection() {
               <motion.div
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.6 }}
-                className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-all"
+                className="w-14 h-14 rounded-2xl bg-secondary/20 flex items-center justify-center mb-6 group-hover:bg-secondary group-hover:text-secondary-foreground transition-all"
               >
-                <feature.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground" />
+                <feature.icon className="w-7 h-7 text-secondary group-hover:text-secondary-foreground" />
               </motion.div>
 
-              <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+              <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-secondary transition-colors">
                 {feature.title}
               </h3>
 
@@ -102,7 +102,7 @@ export function WhySection() {
               </p>
 
               {/* Hover Border Effect */}
-              <div className="mt-6 h-1 w-0 bg-gradient-to-r from-primary to-secondary rounded-full group-hover:w-full transition-all duration-500" />
+              <div className="mt-6 h-1 w-0 bg-gradient-to-r from-secondary to-accent rounded-full group-hover:w-full transition-all duration-500" />
             </motion.div>
           ))}
         </div>

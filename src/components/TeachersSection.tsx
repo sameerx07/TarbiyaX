@@ -66,7 +66,7 @@ export function TeachersSection() {
   };
 
   return (
-    <section id="teachers" ref={ref} className="py-24 bg-muted/30">
+    <section id="teachers" ref={ref} className="py-24 bg-gradient-to-br from-secondary/10 via-background to-primary/10">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div
@@ -78,7 +78,7 @@ export function TeachersSection() {
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">
             Our Team
           </span>
-          <h2 className="text-4xl sm:text-5xl font-bold mt-4 mb-6">
+          <h2 className="text-4xl sm:text-5xl font-bold mt-4 mb-6 text-foreground">
             Meet Our Dedicated Educators
           </h2>
           <p className="text-lg text-muted-foreground">

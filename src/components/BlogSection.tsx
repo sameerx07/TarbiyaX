@@ -40,7 +40,7 @@ export function BlogSection() {
   const navigate = useNavigate();
 
   return (
-    <section id="blog" ref={ref} className="py-24">
+    <section id="blog" ref={ref} className="py-24 bg-gradient-to-br from-accent/10 via-background to-muted/20">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div
@@ -49,10 +49,10 @@ export function BlogSection() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider">
+          <span className="text-secondary font-semibold text-sm uppercase tracking-wider">
             Latest News & Insights
           </span>
-          <h2 className="text-4xl sm:text-5xl font-bold mt-4 mb-6">
+          <h2 className="text-4xl sm:text-5xl font-bold mt-4 mb-6 text-foreground">
             From Our Blog
           </h2>
           <p className="text-lg text-muted-foreground">
