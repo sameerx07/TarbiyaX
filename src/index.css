@@ -8,97 +8,99 @@
 
 @layer base {
   :root {
-    /* Light Mode - Modern Blue & Coral Theme */
-    --background: 0 0% 98%;           /* Clean white */
-    --foreground: 222 47% 11%;        /* Deep blue-black for text */
+    /* Light Mode - Soft Pastel Theme */
+    --background: 0 0% 99%;           /* Almost white */
+    --foreground: 220 30% 20%;        /* Dark grey-blue for text */
 
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 220 30% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 220 30% 20%;
 
-    /* Primary - Vibrant Blue */
-    --primary: 217 91% 60%;           /* Modern blue #3B82F6 */
-    --primary-foreground: 0 0% 100%;
+    /* Primary - Light Blue #A6D3F2 */
+    --primary: 203 73% 80%;
+    --primary-foreground: 220 30% 20%;
 
-    /* Secondary - Warm Coral */
-    --secondary: 14 100% 66%;         /* Coral #FF7A59 */
+    /* Secondary - Coral/Peach #FAA978 */
+    --secondary: 18 92% 72%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Accent - Royal Purple */
-    --accent: 262 83% 58%;            /* Purple #8B5CF6 */
-    --accent-foreground: 0 0% 100%;
+    /* Accent - Sage Green #AFC3AB */
+    --accent: 109 24% 72%;
+    --accent-foreground: 220 30% 20%;
 
-    /* Muted - Soft Grey */
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 9% 46%;
+    /* Muted - Cream #F5E18A */
+    --muted: 49 84% 75%;
+    --muted-foreground: 220 30% 40%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 217 91% 60%;
+    --border: 203 30% 85%;
+    --input: 203 30% 90%;
+    --ring: 203 73% 80%;
 
     --radius: 0.75rem;
 
     /* Glass Card Variables */
-    --glass-bg: 0 0% 100% / 0.7;
-    --glass-border: 220 13% 91% / 0.4;
+    --glass-bg: 0 0% 100% / 0.75;
+    --glass-border: 203 40% 85% / 0.5;
     --glass-shadow: 0 8px 32px 0 / 0.1;
     
     /* Gradient Variables */
-    --gradient-primary: linear-gradient(135deg, #3B82F6, #2563EB);
-    --gradient-secondary: linear-gradient(135deg, #FF7A59, #F97316);
-    --gradient-accent: linear-gradient(135deg, #8B5CF6, #7C3AED);
-    --gradient-hero: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+    --gradient-primary: linear-gradient(135deg, #A6D3F2, #8BC5EF);
+    --gradient-secondary: linear-gradient(135deg, #FAA978, #F89560);
+    --gradient-accent: linear-gradient(135deg, #AFC3AB, #9BB897);
+    --gradient-muted: linear-gradient(135deg, #F5E18A, #F3DC72);
+    --gradient-hero: linear-gradient(135deg, #A6D3F2 0%, #FAA978 50%, #AFC3AB 100%);
   }
 
   .dark {
-    /* Dark Mode - Cyan & Amber Theme */
-    --background: 222 47% 11%;        /* Deep dark blue */
-    --foreground: 210 40% 98%;        /* Almost white */
+    /* Dark Mode - Deep Rich Palette */
+    --background: 220 30% 12%;        /* Deep dark blue-grey */
+    --foreground: 0 0% 95%;           /* Light grey almost white */
 
-    --card: 222 47% 15%;
-    --card-foreground: 210 40% 98%;
+    --card: 220 30% 15%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 222 47% 15%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 220 30% 15%;
+    --popover-foreground: 0 0% 95%;
 
-    /* Primary - Bright Cyan */
-    --primary: 189 94% 43%;           /* Cyan #06B6D4 */
+    /* Primary - Deep Blue (darkened #A6D3F2) */
+    --primary: 203 60% 45%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Warm Amber */
-    --secondary: 38 92% 50%;          /* Amber #F59E0B */
+    /* Secondary - Deep Coral (darkened #FAA978) */
+    --secondary: 18 75% 55%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Accent - Vibrant Violet */
-    --accent: 271 91% 65%;            /* Violet #A78BFA */
+    /* Accent - Deep Green (darkened #AFC3AB) */
+    --accent: 109 30% 45%;
     --accent-foreground: 0 0% 100%;
 
-    /* Muted - Dark Grey */
-    --muted: 222 47% 20%;
-    --muted-foreground: 210 40% 70%;
+    /* Muted - Muted Yellow (darkened #F5E18A) */
+    --muted: 49 50% 40%;
+    --muted-foreground: 0 0% 75%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 222 47% 20%;
-    --input: 222 47% 20%;
-    --ring: 189 94% 43%;
+    --border: 220 20% 25%;
+    --input: 220 20% 20%;
+    --ring: 203 60% 45%;
 
     /* Glass Card Variables - Dark */
-    --glass-bg: 222 47% 15% / 0.7;
-    --glass-border: 222 47% 25% / 0.4;
-    --glass-shadow: 0 8px 32px 0 / 0.3;
+    --glass-bg: 220 30% 18% / 0.8;
+    --glass-border: 220 20% 30% / 0.5;
+    --glass-shadow: 0 8px 32px 0 / 0.4;
     
     /* Gradient Variables */
-    --gradient-primary: linear-gradient(135deg, #06B6D4, #0891B2);
-    --gradient-secondary: linear-gradient(135deg, #F59E0B, #D97706);
-    --gradient-accent: linear-gradient(135deg, #A78BFA, #8B5CF6);
-    --gradient-hero: linear-gradient(135deg, #06B6D4 0%, #A78BFA 100%);
+    --gradient-primary: linear-gradient(135deg, #3B8AC2, #2B6A92);
+    --gradient-secondary: linear-gradient(135deg, #D87F52, #B85A32);
+    --gradient-accent: linear-gradient(135deg, #6F8B6A, #566B52);
+    --gradient-muted: linear-gradient(135deg, #A89C4A, #8A7D3A);
+    --gradient-hero: linear-gradient(135deg, #3B8AC2 0%, #D87F52 50%, #6F8B6A 100%);
   }
 }
 
@@ -110,33 +112,33 @@
   body {
     @apply bg-background text-foreground font-body antialiased;
     font-family: 'Figtree', sans-serif;
-    font-size: 17px;
+    font-size: 18px;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
+    @apply font-heading text-foreground;
     font-family: 'Figtree', sans-serif;
   }
 
-  h1 { font-size: 3rem; }
-  h2 { font-size: 2.25rem; }
-  h3 { font-size: 1.875rem; }
-  h4 { font-size: 1.5rem; }
-  p { font-size: 1.0625rem; line-height: 1.7; }
+  h1 { font-size: 3.5rem; }
+  h2 { font-size: 2.5rem; }
+  h3 { font-size: 2rem; }
+  h4 { font-size: 1.75rem; }
+  p { font-size: 1.125rem; line-height: 1.75; }
 }
 
 @layer components {
   /* Glass Card Component */
   .glass-card {
-    @apply rounded-2xl border border-white/20 shadow-xl;
-    background: rgba(255, 255, 255, 0.6);
+    @apply rounded-2xl border border-primary/20 shadow-xl;
+    background: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
   }
 
   .dark .glass-card {
-    background: rgba(48, 57, 98, 0.3);
-    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(56, 64, 84, 0.4);
+    border-color: rgba(166, 211, 242, 0.15);
   }
 
   /* Glass Header */

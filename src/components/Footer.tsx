@@ -38,22 +38,22 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-accent text-accent-foreground pt-16 pb-8">
+    <footer className="bg-gradient-to-br from-primary via-accent to-secondary text-primary-foreground pt-16 pb-8">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Main Footer Content */}
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-12">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-4 lg:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-4 group">
-              <div className="bg-primary text-primary-foreground p-2 rounded-xl group-hover:scale-110 transition-transform">
+              <div className="bg-background text-primary p-2 rounded-xl group-hover:scale-110 transition-transform">
                 <BookOpen className="w-6 h-6" />
               </div>
               <div>
                 <h3 className="font-bold text-lg leading-none">Nur Al-Ilm</h3>
-                <p className="text-xs text-accent-foreground/70">Islamic Academy</p>
+                <p className="text-xs text-primary-foreground/80">Islamic Academy</p>
               </div>
             </Link>
-            <p className="text-sm text-accent-foreground/80 mb-6">
+            <p className="text-sm text-primary-foreground/80 mb-6">
               Nurturing young minds through Islamic values and academic excellence since 2015.
             </p>
             
@@ -66,7 +66,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="w-10 h-10 rounded-full bg-accent-foreground/10 flex items-center justify-center hover:bg-secondary hover:text-secondary-foreground transition-all transform hover:scale-110"
+                  className="w-10 h-10 rounded-full bg-background/20 flex items-center justify-center hover:bg-background hover:text-primary transition-all transform hover:scale-110"
                 >
                   <Icon className="w-5 h-5" />
                 </a>
@@ -82,7 +82,7 @@ export function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-accent-foreground/80 hover:text-secondary transition-colors"
+                    className="text-sm text-primary-foreground/80 hover:text-background transition-colors"
                   >
                     {link.label}
                   </a>
@@ -99,7 +99,7 @@ export function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-accent-foreground/80 hover:text-secondary transition-colors"
+                    className="text-sm text-primary-foreground/80 hover:text-background transition-colors"
                   >
                     {link.label}
                   </a>
@@ -116,7 +116,7 @@ export function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-accent-foreground/80 hover:text-secondary transition-colors"
+                    className="text-sm text-primary-foreground/80 hover:text-background transition-colors"
                   >
                     {link.label}
                   </a>
@@ -133,7 +133,7 @@ export function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-accent-foreground/80 hover:text-secondary transition-colors"
+                    className="text-sm text-primary-foreground/80 hover:text-background transition-colors"
                   >
                     {link.label}
                   </a>
@@ -144,19 +144,19 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-accent-foreground/20">
+        <div className="pt-8 border-t border-primary-foreground/20">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-accent-foreground/70">
+            <p className="text-sm text-primary-foreground/70">
               © {new Date().getFullYear()} Nur Al-Ilm Islamic Academy. All rights reserved.
             </p>
             <div className="flex gap-6">
-              <a href="#" className="text-sm text-accent-foreground/70 hover:text-secondary transition-colors">
+              <a href="#" className="text-sm text-primary-foreground/70 hover:text-background transition-colors">
                 Privacy Policy
               </a>
-              <a href="#" className="text-sm text-accent-foreground/70 hover:text-secondary transition-colors">
+              <a href="#" className="text-sm text-primary-foreground/70 hover:text-background transition-colors">
                 Terms of Service
               </a>
-              <a href="#" className="text-sm text-accent-foreground/70 hover:text-secondary transition-colors">
+              <a href="#" className="text-sm text-primary-foreground/70 hover:text-background transition-colors">
                 Accessibility
               </a>
             </div>

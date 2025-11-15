@@ -85,7 +85,7 @@ export function CurriculumSection() {
   const navigate = useNavigate();
 
   return (
-    <section id="curriculum" ref={ref} className="py-24 overflow-hidden">
+    <section id="curriculum" ref={ref} className="py-24 overflow-hidden bg-gradient-to-br from-muted/20 via-background to-accent/10">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div
@@ -94,10 +94,10 @@ export function CurriculumSection() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider">
+          <span className="text-accent font-semibold text-sm uppercase tracking-wider">
             Our Curriculum
           </span>
-          <h2 className="text-4xl sm:text-5xl font-bold mt-4 mb-6">
+          <h2 className="text-4xl sm:text-5xl font-bold mt-4 mb-6 text-foreground">
             Comprehensive Learning Experience
           </h2>
           <p className="text-lg text-muted-foreground">
