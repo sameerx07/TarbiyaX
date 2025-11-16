@@ -69,7 +69,7 @@ export function WhySection() {
             Excellence in Every Aspect
           </h2>
           <p className="text-lg text-muted-foreground">
-            Discover what makes Nur Al-Ilm the premier choice for Islamic education
+            Discover what makes TarbiyaX the premier choice for Islamic education
             in our community.
           </p>
         </motion.div>

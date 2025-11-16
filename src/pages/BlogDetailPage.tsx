@@ -16,7 +16,7 @@ const blogData: Record<string, any> = {
     content: [
       {
         type: "paragraph",
-        text: "In today's rapidly changing world, character education has become more crucial than ever. At Nur Al-Ilm Islamic Academy, we believe that academic excellence must be paired with strong moral foundations rooted in Islamic values.",
+        text: "In today's rapidly changing world, character education has become more crucial than ever. At TarbiyaX Islamic Academy, we believe that academic excellence must be paired with strong moral foundations rooted in Islamic values.",
       },
       {
         type: "heading",
@@ -78,7 +78,7 @@ const blogData: Record<string, any> = {
       },
       {
         type: "paragraph",
-        text: "This is why our approach at Nur Al-Ilm emphasizes rich, multi-sensory learning experiences. We know that young children learn best through play, exploration, and meaningful relationships. Our curriculum is designed to stimulate cognitive development while nurturing emotional and social growth.",
+        text: "This is why our approach at TarbiyaX emphasizes rich, multi-sensory learning experiences. We know that young children learn best through play, exploration, and meaningful relationships. Our curriculum is designed to stimulate cognitive development while nurturing emotional and social growth.",
       },
       {
         type: "heading",
@@ -114,7 +114,7 @@ const blogData: Record<string, any> = {
       },
       {
         type: "paragraph",
-        text: "At Nur Al-Ilm, we're not just preparing students for the next grade—we're laying groundwork for lifelong learning, strong character, and meaningful contributions to their communities. Investing in early childhood is investing in a brighter future.",
+        text: "At TarbiyaX, we're not just preparing students for the next grade—we're laying groundwork for lifelong learning, strong character, and meaningful contributions to their communities. Investing in early childhood is investing in a brighter future.",
       },
     ],
   },
@@ -128,7 +128,7 @@ const blogData: Record<string, any> = {
     content: [
       {
         type: "paragraph",
-        text: "One of the most common questions prospective parents ask is: 'How do you balance Islamic education with meeting academic standards?' It's a valid concern, but at Nur Al-Ilm, we've discovered that faith and academics are not competing priorities—they're complementary dimensions of a truly holistic education.",
+        text: "One of the most common questions prospective parents ask is: 'How do you balance Islamic education with meeting academic standards?' It's a valid concern, but at TarbiyaX, we've discovered that faith and academics are not competing priorities—they're complementary dimensions of a truly holistic education.",
       },
       {
         type: "heading",
@@ -172,7 +172,7 @@ const blogData: Record<string, any> = {
       },
       {
         type: "paragraph",
-        text: "Families choose Nur Al-Ilm because they want their children to be confident in both their Muslim identity and their ability to succeed in any academic or professional setting. Our graduates go on to excel in competitive high schools and universities while maintaining strong Islamic values.",
+        text: "Families choose TarbiyaX because they want their children to be confident in both their Muslim identity and their ability to succeed in any academic or professional setting. Our graduates go on to excel in competitive high schools and universities while maintaining strong Islamic values.",
       },
       {
         type: "paragraph",
@@ -212,7 +212,12 @@ export default function BlogDetailPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <motion.section 
+        initial={{ opacity: 0, y: -50, rotateX: -15 }}
+        animate={{ opacity: 1, y: 0, rotateX: 0 }}
+        transition={{ duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] }}
+        className="relative pt-32 pb-20 overflow-hidden"
+      >
         <div className="absolute inset-0">
           <img
             src={post.image}
@@ -271,7 +276,7 @@ export default function BlogDetailPage() {
             </div>
           </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Content */}
       <section className="py-16">

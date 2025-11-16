@@ -36,7 +36,7 @@ export function AboutSection() {
               transition={{ delay: 0.2 }}
               className="text-primary font-semibold text-sm uppercase tracking-wider"
             >
-              About Nur Al-Ilm
+              About TarbiyaX
             </motion.span>
 
             <motion.h2
@@ -54,7 +54,7 @@ export function AboutSection() {
               transition={{ delay: 0.4 }}
               className="text-lg text-muted-foreground mb-6 leading-relaxed"
             >
-              At Nur Al-Ilm Islamic Academy, we provide a comprehensive K-5 education
+              At TarbiyaX Islamic Academy, we provide a comprehensive K-5 education
               that seamlessly integrates Islamic values with academic excellence. Our
               dedicated educators create a nurturing environment where children develop
               strong character, critical thinking skills, and a deep love for learning.

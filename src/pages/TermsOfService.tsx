@@ -12,9 +12,9 @@ export default function TermsOfService() {
         <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
           {/* Header */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, y: -50, rotateX: -15 }}
+            animate={{ opacity: 1, y: 0, rotateX: 0 }}
+            transition={{ duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] }}
             className="text-center mb-12"
           >
             <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-secondary via-accent to-primary flex items-center justify-center mx-auto mb-6">
@@ -38,7 +38,7 @@ export default function TermsOfService() {
             <section>
               <h2 className="text-3xl font-bold mb-4 text-foreground">Agreement to Terms</h2>
               <p className="text-muted-foreground leading-relaxed">
-                By accessing or using the Nur Al-Ilm Islamic Academy website and services, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this site.
+                By accessing or using the TarbiyaX Islamic Academy website and services, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this site.
               </p>
             </section>
 
@@ -48,7 +48,7 @@ export default function TermsOfService() {
                 <div>
                   <h3 className="text-xl font-semibold mb-2 text-foreground">Application Process</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    Enrollment at Nur Al-Ilm Islamic Academy is subject to:
+                    Enrollment at TarbiyaX Islamic Academy is subject to:
                   </p>
                   <ul className="list-disc list-inside ml-4 mt-2 space-y-2 text-muted-foreground">
                     <li>Completion of all required application materials</li>
@@ -131,7 +131,7 @@ export default function TermsOfService() {
             <section>
               <h2 className="text-3xl font-bold mb-4 text-foreground">Intellectual Property</h2>
               <p className="text-muted-foreground leading-relaxed">
-                All content on this website, including text, graphics, logos, images, and software, is the property of Nur Al-Ilm Islamic Academy and is protected by copyright and trademark laws. You may not reproduce, distribute, or create derivative works without our written permission.
+                All content on this website, including text, graphics, logos, images, and software, is the property of TarbiyaX Islamic Academy and is protected by copyright and trademark laws. You may not reproduce, distribute, or create derivative works without our written permission.
               </p>
             </section>
 
@@ -166,7 +166,7 @@ export default function TermsOfService() {
             <section>
               <h2 className="text-3xl font-bold mb-4 text-foreground">Limitation of Liability</h2>
               <p className="text-muted-foreground leading-relaxed">
-                To the fullest extent permitted by law, Nur Al-Ilm Islamic Academy shall not be liable for any indirect, incidental, special, or consequential damages arising from the use of our website or services. We do not guarantee uninterrupted or error-free operation of our website.
+                To the fullest extent permitted by law, TarbiyaX Islamic Academy shall not be liable for any indirect, incidental, special, or consequential damages arising from the use of our website or services. We do not guarantee uninterrupted or error-free operation of our website.
               </p>
             </section>
 
@@ -197,7 +197,7 @@ export default function TermsOfService() {
                 If you have questions about these Terms of Service, please contact us:
               </p>
               <div className="mt-4 space-y-2 text-muted-foreground">
-                <p><strong>Nur Al-Ilm Islamic Academy</strong></p>
+                <p><strong>TarbiyaX Islamic Academy</strong></p>
                 <p>Email: info@nuralilm.edu</p>
                 <p>Phone: +1 (555) 123-4567</p>
                 <p>Address: 123 Education Lane, City, State 12345</p>

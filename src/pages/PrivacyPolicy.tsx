@@ -12,9 +12,9 @@ export default function PrivacyPolicy() {
         <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
           {/* Header */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, y: -50, rotateX: -15 }}
+            animate={{ opacity: 1, y: 0, rotateX: 0 }}
+            transition={{ duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] }}
             className="text-center mb-12"
           >
             <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary via-secondary to-accent flex items-center justify-center mx-auto mb-6">
@@ -38,7 +38,7 @@ export default function PrivacyPolicy() {
             <section>
               <h2 className="text-3xl font-bold mb-4 text-foreground">Introduction</h2>
               <p className="text-muted-foreground leading-relaxed">
-                At Nur Al-Ilm Islamic Academy, we are committed to protecting the privacy and security of our students, families, and website visitors. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or interact with our services.
+                At TarbiyaX Islamic Academy, we are committed to protecting the privacy and security of our students, families, and website visitors. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or interact with our services.
               </p>
             </section>
 
@@ -148,7 +148,7 @@ export default function PrivacyPolicy() {
                 If you have questions or concerns about this Privacy Policy or our privacy practices, please contact us:
               </p>
               <div className="mt-4 space-y-2 text-muted-foreground">
-                <p><strong>Nur Al-Ilm Islamic Academy</strong></p>
+                <p><strong>TarbiyaX Islamic Academy</strong></p>
                 <p>Email: privacy@nuralilm.edu</p>
                 <p>Phone: +1 (555) 123-4567</p>
                 <p>Address: 123 Education Lane, City, State 12345</p>
