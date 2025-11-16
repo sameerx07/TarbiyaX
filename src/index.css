@@ -4,13 +4,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Islamic K-5 School Design System - Professional Glass Morphism */
+/* TarbiyaX Design System - Three Color Palette */
 
 @layer base {
   :root {
-    /* Light Mode - Soft Pastel Theme */
+    /* Light Mode - Using #BDE7EF, #F5E18A, #F5CAC3 */
     --background: 0 0% 99%;           /* Almost white */
-    --foreground: 220 30% 20%;        /* Dark grey-blue for text */
+    --foreground: 220 30% 20%;        /* Dark text */
 
     --card: 0 0% 100%;
     --card-foreground: 220 30% 20%;
@@ -18,48 +18,47 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 30% 20%;
 
-    /* Primary - Light Blue #A6D3F2 */
-    --primary: 203 73% 80%;
+    /* Primary - Light Blue #BDE7EF */
+    --primary: 191 64% 84%;
     --primary-foreground: 220 30% 20%;
 
-    /* Secondary - Coral/Peach #FAA978 */
-    --secondary: 18 92% 72%;
-    --secondary-foreground: 0 0% 100%;
+    /* Secondary - Peach/Pink #F5CAC3 */
+    --secondary: 8 71% 86%;
+    --secondary-foreground: 220 30% 20%;
 
-    /* Accent - Sage Green #AFC3AB */
-    --accent: 109 24% 72%;
+    /* Accent - Yellow #F5E18A */
+    --accent: 49 84% 75%;
     --accent-foreground: 220 30% 20%;
 
-    /* Muted - Cream #F5E18A */
-    --muted: 49 84% 75%;
+    /* Muted - Lighter Primary */
+    --muted: 191 50% 92%;
     --muted-foreground: 220 30% 40%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 203 30% 85%;
-    --input: 203 30% 90%;
-    --ring: 203 73% 80%;
+    --border: 191 40% 85%;
+    --input: 191 40% 90%;
+    --ring: 191 64% 84%;
 
     --radius: 0.75rem;
 
     /* Glass Card Variables */
     --glass-bg: 0 0% 100% / 0.75;
-    --glass-border: 203 40% 85% / 0.5;
+    --glass-border: 191 40% 85% / 0.5;
     --glass-shadow: 0 8px 32px 0 / 0.1;
     
     /* Gradient Variables */
-    --gradient-primary: linear-gradient(135deg, #A6D3F2, #8BC5EF);
-    --gradient-secondary: linear-gradient(135deg, #FAA978, #F89560);
-    --gradient-accent: linear-gradient(135deg, #AFC3AB, #9BB897);
-    --gradient-muted: linear-gradient(135deg, #F5E18A, #F3DC72);
-    --gradient-hero: linear-gradient(135deg, #A6D3F2 0%, #FAA978 50%, #AFC3AB 100%);
+    --gradient-primary: linear-gradient(135deg, #BDE7EF, #A8DCE8);
+    --gradient-secondary: linear-gradient(135deg, #F5CAC3, #F3B8AF);
+    --gradient-accent: linear-gradient(135deg, #F5E18A, #F3DC72);
+    --gradient-hero: linear-gradient(135deg, #BDE7EF 0%, #F5E18A 50%, #F5CAC3 100%);
   }
 
   .dark {
-    /* Dark Mode - Deep Rich Palette */
-    --background: 220 30% 12%;        /* Deep dark blue-grey */
-    --foreground: 0 0% 95%;           /* Light grey almost white */
+    /* Dark Mode - Deeper versions of the three colors */
+    --background: 220 30% 12%;
+    --foreground: 0 0% 95%;
 
     --card: 220 30% 15%;
     --card-foreground: 0 0% 95%;
@@ -67,20 +66,20 @@
     --popover: 220 30% 15%;
     --popover-foreground: 0 0% 95%;
 
-    /* Primary - Deep Blue (darkened #A6D3F2) */
-    --primary: 203 60% 45%;
+    /* Primary - Deep Blue (darkened #BDE7EF) */
+    --primary: 191 50% 45%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Deep Coral (darkened #FAA978) */
-    --secondary: 18 75% 55%;
+    /* Secondary - Deep Peach (darkened #F5CAC3) */
+    --secondary: 8 60% 50%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Accent - Deep Green (darkened #AFC3AB) */
-    --accent: 109 30% 45%;
+    /* Accent - Deep Yellow (darkened #F5E18A) */
+    --accent: 49 50% 45%;
     --accent-foreground: 0 0% 100%;
 
-    /* Muted - Muted Yellow (darkened #F5E18A) */
-    --muted: 49 50% 40%;
+    /* Muted */
+    --muted: 220 20% 25%;
     --muted-foreground: 0 0% 75%;
 
     --destructive: 0 84% 60%;
@@ -88,7 +87,7 @@
 
     --border: 220 20% 25%;
     --input: 220 20% 20%;
-    --ring: 203 60% 45%;
+    --ring: 191 50% 45%;
 
     /* Glass Card Variables - Dark */
     --glass-bg: 220 30% 18% / 0.8;
@@ -96,11 +95,10 @@
     --glass-shadow: 0 8px 32px 0 / 0.4;
     
     /* Gradient Variables */
-    --gradient-primary: linear-gradient(135deg, #3B8AC2, #2B6A92);
-    --gradient-secondary: linear-gradient(135deg, #D87F52, #B85A32);
-    --gradient-accent: linear-gradient(135deg, #6F8B6A, #566B52);
-    --gradient-muted: linear-gradient(135deg, #A89C4A, #8A7D3A);
-    --gradient-hero: linear-gradient(135deg, #3B8AC2 0%, #D87F52 50%, #6F8B6A 100%);
+    --gradient-primary: linear-gradient(135deg, #4A9FB0, #3A8090);
+    --gradient-secondary: linear-gradient(135deg, #C78A7F, #B0756A);
+    --gradient-accent: linear-gradient(135deg, #B8A950, #9A8A40);
+    --gradient-hero: linear-gradient(135deg, #4A9FB0 0%, #B8A950 50%, #C78A7F 100%);
   }
 }
 
@@ -120,10 +118,10 @@
     font-family: 'Figtree', sans-serif;
   }
 
-  h1 { font-size: 4rem; }
-  h2 { font-size: 3.5rem; }
-  h3 { font-size: 2.25rem; }
-  h4 { font-size: 1.875rem; }
+  h1 { font-size: 4rem; font-weight: 800; }
+  h2 { font-size: 3.5rem; font-weight: 700; }
+  h3 { font-size: 2.25rem; font-weight: 600; }
+  h4 { font-size: 1.875rem; font-weight: 600; }
   p { font-size: 1.125rem; line-height: 1.75; }
 }
 
@@ -138,7 +136,7 @@
 
   .dark .glass-card {
     background: rgba(56, 64, 84, 0.4);
-    border-color: rgba(166, 211, 242, 0.15);
+    border-color: rgba(189, 231, 239, 0.15);
   }
 
   /* Glass Header */
