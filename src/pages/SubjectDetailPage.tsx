@@ -253,7 +253,12 @@ export default function SubjectDetailPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <motion.section 
+        initial={{ opacity: 0, y: -50, rotateX: -15 }}
+        animate={{ opacity: 1, y: 0, rotateX: 0 }}
+        transition={{ duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] }}
+        className="relative pt-32 pb-20 overflow-hidden"
+      >
         <div className="absolute inset-0">
           <img
             src={subject.image}
@@ -285,7 +290,7 @@ export default function SubjectDetailPage() {
             <p className="text-xl text-white/90">{subject.description}</p>
           </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Overview */}
       <section className="py-16">

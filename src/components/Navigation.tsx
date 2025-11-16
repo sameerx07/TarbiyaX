@@ -60,14 +60,12 @@ export function Navigation() {
       <nav className="container mx-auto px-4 sm:px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="bg-primary text-primary-foreground p-2 rounded-xl group-hover:scale-110 transition-transform">
-              <BookOpen className="w-6 h-6" />
-            </div>
-            <div>
-              <h1 className="font-bold text-lg leading-none">Nur Al-Ilm</h1>
-              <p className="text-xs text-muted-foreground">Islamic Academy</p>
-            </div>
+          <Link to="/" className="flex items-center group">
+            <img 
+              src="/src/assets/logo.png" 
+              alt="TarbiyaX Logo" 
+              className="h-12 w-auto group-hover:scale-110 transition-transform"
+            />
           </Link>
 
           {/* Desktop Navigation */}

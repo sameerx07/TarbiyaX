@@ -14,7 +14,7 @@ interface Message {
 const initialMessages: Message[] = [
   {
     id: 1,
-    text: "As-salamu alaykum! Welcome to Nur Al-Ilm Islamic Academy. How can I assist you today?",
+    text: "As-salamu alaykum! Welcome to TarbiyaX Islamic Academy. How can I assist you today?",
     sender: "bot",
     timestamp: new Date(),
   },

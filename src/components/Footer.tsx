@@ -49,7 +49,7 @@ export function Footer() {
                 <BookOpen className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="font-bold text-lg leading-none">Nur Al-Ilm</h3>
+                <h3 className="font-bold text-lg leading-none">TarbiyaX</h3>
                 <p className="text-xs text-primary-foreground/80">Islamic Academy</p>
               </div>
             </Link>
@@ -147,7 +147,7 @@ export function Footer() {
         <div className="pt-8 border-t border-primary-foreground/20">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-primary-foreground/70">
-              © {new Date().getFullYear()} Nur Al-Ilm Islamic Academy. All rights reserved.
+              © {new Date().getFullYear()} TarbiyaX Islamic Academy. All rights reserved.
             </p>
             <div className="flex gap-6">
               <Link to="/privacy-policy" className="text-sm text-primary-foreground/70 hover:text-background transition-colors">
