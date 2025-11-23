@@ -1,69 +1,223 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Bell } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { X, Bell, MessageCircle, UserPlus } from "lucide-react";
 
-export function AlertBanner() {
+// Helper component for the button
+const CustomButton = ({ children, className = "", onClick, variant = "primary" }) => {
+  const baseClasses = "flex items-center justify-center gap-2 font-semibold text-sm rounded-xl transition-all duration-300 shadow-lg";
+  
+  const variants = {
+    primary: "bg-gradient-to-r from-primary to-secondary text-white hover:shadow-xl hover:scale-105 active:scale-95",
+    whatsapp: "bg-[#25D366] hover:bg-[#20BA5A] text-white hover:shadow-xl hover:shadow-[#25D366]/30 hover:scale-105 active:scale-95",
+  };
+
+  return (
+    <motion.button
+      whileHover={{ y: -2 }}
+      whileTap={{ scale: 0.95 }}
+      onClick={onClick}
+      className={`${baseClasses} ${variants[variant]} ${className}`}
+    >
+      {children}
+    </motion.button>
+  );
+};
+
+// Unique key for localStorage
+const STORAGE_KEY = "enrollment-banner-permanent-dismiss-v5";
+const WHATSAPP_NUMBER = "918978704174"; // Replace with your WhatsApp number (with country code, no + or spaces)
+const WHATSAPP_MESSAGE = "Hi! I'm interested in enrolling my child at TarbiyaX Academy. Can you provide more information?";
+
+export default function AlertBanner() {
   const [isVisible, setIsVisible] = useState(false);
+  const [showCount, setShowCount] = useState(0);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      const hasSeenBanner = sessionStorage.getItem("enrollment-banner-seen");
-      if (!hasSeenBanner) {
-        setIsVisible(true);
-      }
+    // Check if the banner has been permanently dismissed
+    const isPermanentlyDismissed = localStorage.getItem(STORAGE_KEY);
+    if (isPermanentlyDismissed === "true") return;
+
+    // Show the banner after 2 seconds on first load
+    const initialTimer = setTimeout(() => {
+      setIsVisible(true);
+      setShowCount(1);
     }, 2000);
 
-    return () => clearTimeout(timer);
+    // Set up recurring interval to show banner every 30 seconds
+    const recurringTimer = setInterval(() => {
+      const currentPermanentDismiss = localStorage.getItem(STORAGE_KEY);
+      // Only check permanent dismiss, ignore temporary closes
+      if (currentPermanentDismiss !== "true") {
+        setIsVisible(true);
+        setShowCount((prev) => prev + 1);
+      }
+    }, 30000); // 30 seconds
+
+    return () => {
+      clearTimeout(initialTimer);
+      clearInterval(recurringTimer);
+    };
   }, []);
 
+  // Temporary close - banner will reappear in 30 seconds
   const handleClose = () => {
     setIsVisible(false);
-    sessionStorage.setItem("enrollment-banner-seen", "true");
+    // Don't save to localStorage - just hide temporarily
+  };
+
+  // Permanent dismiss - banner will never show again
+  const handlePermanentClose = () => {
+    setIsVisible(false);
+    // Permanently dismiss the banner
+    localStorage.setItem(STORAGE_KEY, "true");
+  };
+
+  const handleWhatsApp = () => {
+    const encodedMessage = encodeURIComponent(WHATSAPP_MESSAGE);
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    handleClose(); // Temporary close - will reappear
+  };
+
+  const handleEnroll = () => {
+    handleClose(); // Temporary close - will reappear
+    // Scroll to contact section
+    setTimeout(() => {
+      const contactSection = document.getElementById("contact");
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 300);
   };
 
   return (
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          initial={{ x: -400, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          exit={{ x: -400, opacity: 0 }}
-          transition={{ type: "spring", damping: 25 }}
-          className="fixed bottom-6 left-6 z-50 w-80 max-w-[calc(100vw-3rem)]"
+          initial={{ x: -400, opacity: 0, scale: 0.8, rotateY: -15 }}
+          animate={{ x: 0, opacity: 1, scale: 1, rotateY: 0 }}
+          exit={{ x: -400, opacity: 0, scale: 0.8, rotateY: -15 }}
+          transition={{ type: "spring", damping: 20, stiffness: 150 }}
+          className="fixed bottom-6 left-6 z-50 w-96 max-w-[calc(100vw-3rem)]"
         >
-          <div className="glass-card p-6 shadow-2xl border-2 border-primary/20">
-            <button
-              onClick={handleClose}
-              className="absolute top-2 right-2 text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <X className="w-4 h-4" />
-            </button>
+          {/* Glass Card with Premium Styling */}
+          <div className="relative group">
+            {/* Glow Effect */}
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-primary via-secondary to-accent rounded-3xl opacity-30 blur-xl group-hover:opacity-40 transition-all duration-500" />
 
-            <div className="flex items-start gap-4">
-              <motion.div
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="bg-primary text-primary-foreground p-3 rounded-xl"
-              >
-                <Bell className="w-6 h-6" />
-              </motion.div>
+            {/* Main Card */}
+            <div className="relative p-6 rounded-3xl backdrop-blur-xl bg-card/80 dark:bg-card/60 shadow-2xl border border-white/20 dark:border-white/10 overflow-hidden">
+              {/* Background Pattern */}
+              <div
+                className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]"
+                style={{
+                  backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--foreground)) 1px, transparent 0)`,
+                  backgroundSize: "20px 20px",
+                }}
+              />
 
-              <div className="flex-1">
-                <h3 className="font-bold text-lg mb-2">
-                  Enrollment Open!
-                </h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Secure your child's spot for the 2025 academic year. Limited seats available.
-                </p>
-                <Button
-                  size="sm"
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
-                  asChild
+              {/* Close Buttons */}
+              <div className="absolute top-3 right-3 flex gap-2">
+                {/* Temporary Close - Will reappear in 30 seconds */}
+                <motion.button
+                  whileHover={{ scale: 1.1, rotate: 90 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={handleClose}
+                  className="text-muted-foreground hover:text-foreground transition-colors p-1.5 rounded-lg hover:bg-muted/50 backdrop-blur-sm"
+                  aria-label="Close Alert"
+                  title="Close (will reappear in 30s)"
                 >
-                  <a href="#contact">Apply Now</a>
-                </Button>
+                  <X className="w-4 h-4" />
+                </motion.button>
+
+                {/* Permanent Dismiss - Never show again */}
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={handlePermanentClose}
+                  className="text-muted-foreground hover:text-destructive transition-colors p-1.5 rounded-lg hover:bg-destructive/10 backdrop-blur-sm border border-destructive/20"
+                  aria-label="Dismiss Permanently"
+                  title="Don't show again (permanent)"
+                >
+                  <X className="w-4 h-4" strokeWidth={3} />
+                </motion.button>
               </div>
+
+              <div className="flex items-start gap-4 relative">
+                {/* Animated Icon */}
+                <motion.div
+                  animate={{
+                    scale: [1, 1.1, 1],
+                    rotate: [0, 5, -5, 0],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="relative"
+                >
+                  <div className="bg-gradient-to-br from-primary to-secondary text-white p-3.5 rounded-2xl shadow-xl flex-shrink-0">
+                    <Bell className="w-7 h-7" />
+                  </div>
+                  {/* Icon Glow */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-2xl blur-lg opacity-50" />
+                </motion.div>
+
+                {/* Content */}
+                <div className="flex-1 overflow-hidden pt-1">
+                  <motion.h3
+                    initial={{ y: 10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.2 }}
+                    className="font-extrabold text-xl text-foreground mb-2 leading-tight"
+                  >
+                    🎓 Enrollment Open!
+                  </motion.h3>
+                  <motion.p
+                    initial={{ y: 10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.3 }}
+                    className="text-sm text-muted-foreground mb-5 leading-relaxed"
+                  >
+                    Secure your child's spot for 2024-25. Limited seats
+                    available at TarbiyaX Academy.
+                  </motion.p>
+
+                  {/* Action Buttons */}
+                  <motion.div
+                    initial={{ y: 10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.4 }}
+                    className="flex gap-3"
+                  >
+                    {/* WhatsApp Button */}
+                    <CustomButton
+                      className="flex-1 py-3"
+                      variant="whatsapp"
+                      onClick={handleWhatsApp}
+                    >
+                      <MessageCircle className="w-4 h-4" />
+                      WhatsApp
+                    </CustomButton>
+
+                    {/* Enroll Button */}
+                    <CustomButton
+                      className="flex-1 py-3"
+                      variant="primary"
+                      onClick={handleEnroll}
+                    >
+                      <UserPlus className="w-4 h-4" />
+                      Enroll Now
+                    </CustomButton>
+                  </motion.div>
+                </div>
+              </div>
+
+              {/* Show Counter (Optional - for debugging) */}
+              {/* <div className="absolute bottom-2 left-2 text-[10px] text-muted-foreground/50">
+                Shown: {showCount}x
+              </div> */}
             </div>
           </div>
         </motion.div>
@@ -71,3 +225,5 @@ export function AlertBanner() {
     </AnimatePresence>
   );
 }
+
+export { AlertBanner };

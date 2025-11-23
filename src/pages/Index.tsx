@@ -10,6 +10,8 @@ import { BlogSection } from "@/components/BlogSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Chatbot } from "@/components/Chatbot";
 import { Footer } from "@/components/Footer";
+import {FAQSection} from "@/components/Faq";
+
 
 const Index = () => {
   useSmoothScroll();
@@ -24,6 +26,7 @@ const Index = () => {
       <CurriculumSection />
       <TeachersSection />
       <BlogSection />
+      <FAQSection />
       <ContactSection />
       <Chatbot />
       <Footer />

@@ -1,9 +1,15 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
-import { ArrowLeft, Calendar, User, Clock, Share2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Navigation } from "@/components/Navigation";
-import { Footer } from "@/components/Footer";
+import { motion, useScroll, useTransform } from "framer-motion";
+import {
+  ArrowLeft,
+  Calendar,
+  User,
+  Clock,
+  Share2,
+  Sparkles,
+  ChevronRight,
+} from "lucide-react";
+import { useEffect } from "react";
 
 const blogData: Record<string, any> = {
   "building-character-through-islamic-education": {
@@ -12,7 +18,8 @@ const blogData: Record<string, any> = {
     date: "March 15, 2025",
     readTime: "8 min read",
     category: "Education",
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&h=600&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&h=600&fit=crop",
     content: [
       {
         type: "paragraph",
@@ -62,7 +69,8 @@ const blogData: Record<string, any> = {
     date: "March 10, 2025",
     readTime: "6 min read",
     category: "Child Development",
-    image: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=1200&h=600&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=1200&h=600&fit=crop",
     content: [
       {
         type: "paragraph",
@@ -124,7 +132,8 @@ const blogData: Record<string, any> = {
     date: "March 5, 2025",
     readTime: "7 min read",
     category: "Islamic Studies",
-    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1200&h=600&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1200&h=600&fit=crop",
     content: [
       {
         type: "paragraph",
@@ -186,13 +195,31 @@ export default function BlogDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const post = slug ? blogData[slug] : null;
+  const { scrollYProgress } = useScroll();
+
+  // Scroll to top on mount
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [slug]);
+
+  const heroY = useTransform(scrollYProgress, [0, 0.3], [0, 150]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
 
   if (!post) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center bg-background">
         <div className="text-center">
-          <h1 className="text-4xl font-bold mb-4">Post Not Found</h1>
-          <Button onClick={() => navigate("/")}>Return Home</Button>
+          <h1 className="text-4xl font-bold mb-4 text-foreground">
+            Post Not Found
+          </h1>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => navigate("/")}
+            className="px-6 py-3 rounded-xl bg-gradient-to-r from-primary to-secondary text-white font-semibold"
+          >
+            Return Home
+          </motion.button>
         </div>
       </div>
     );
@@ -208,96 +235,159 @@ export default function BlogDetailPage() {
   };
 
   return (
-    <div className="min-h-screen">
-      <Navigation />
+    <div className="min-h-screen bg-background">
+      {/* Progress Bar */}
+      <motion.div
+        style={{ scaleX: scrollYProgress }}
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-accent origin-left z-50"
+      />
 
-      {/* Hero Section */}
-      <motion.section 
-        initial={{ opacity: 0, y: -50, rotateX: -15 }}
-        animate={{ opacity: 1, y: 0, rotateX: 0 }}
-        transition={{ duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] }}
-        className="relative pt-32 pb-20 overflow-hidden"
+      {/* Hero Banner with Parallax */}
+      <motion.section
+        style={{ y: heroY }}
+        className="relative h-[70vh] min-h-[500px] overflow-hidden"
       >
-        <div className="absolute inset-0">
+        {/* Banner Image - Fully Visible */}
+        <motion.div
+          initial={{ scale: 1.2, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
+          className="absolute inset-0"
+        >
           <img
             src={post.image}
             alt={post.title}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
+          {/* Subtle gradient only at bottom for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+        </motion.div>
+
+        {/* Glass Navigation Bar */}
+        <motion.div
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="absolute top-0 left-0 right-0 z-20"
+        >
+          <div className="backdrop-blur-xl bg-background/30 border-b border-white/10">
+            <div className="container mx-auto px-4 sm:px-6 py-4">
+              <motion.button
+                whileHover={{ x: -5 }}
+                onClick={() => navigate("/")}
+                className="group flex items-center gap-2 text-white hover:text-primary transition-colors font-semibold"
+              >
+                <div className="p-2 rounded-lg bg-white/10 backdrop-blur-sm group-hover:bg-primary/20 transition-colors">
+                  <ArrowLeft className="w-5 h-5" />
+                </div>
+                <span>Back to Home</span>
+              </motion.button>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Hero Content */}
+        <motion.div
+          style={{ opacity: heroOpacity }}
+          className="absolute bottom-0 left-0 right-0 z-10"
+        >
+          <div className="container mx-auto px-4 sm:px-6 pb-12">
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="max-w-4xl"
+            >
+              {/* Category Badge */}
+              <motion.div
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 0.6, type: "spring" }}
+                className="inline-block mb-6"
+              >
+                <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/20 backdrop-blur-xl border border-white/30 text-white text-sm font-bold rounded-full shadow-2xl">
+                  <Sparkles className="w-4 h-4" />
+                  {post.category}
+                </span>
+              </motion.div>
+
+              {/* Title */}
+              <motion.h1
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.7 }}
+                className="text-4xl md:text-5xl lg:text-7xl font-bold mb-8 text-white leading-tight drop-shadow-2xl"
+              >
+                {post.title}
+              </motion.h1>
+
+              {/* Meta Info */}
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.9 }}
+                className="flex flex-wrap items-center gap-6"
+              >
+                <div className="flex items-center gap-2 text-white/90">
+                  <div className="p-2 rounded-lg bg-white/20 backdrop-blur-sm">
+                    <User className="w-4 h-4" />
+                  </div>
+                  <span className="font-medium">{post.author}</span>
+                </div>
+                <div className="flex items-center gap-2 text-white/90">
+                  <div className="p-2 rounded-lg bg-white/20 backdrop-blur-sm">
+                    <Calendar className="w-4 h-4" />
+                  </div>
+                  <span>{post.date}</span>
+                </div>
+                <div className="flex items-center gap-2 text-white/90">
+                  <div className="p-2 rounded-lg bg-white/20 backdrop-blur-sm">
+                    <Clock className="w-4 h-4" />
+                  </div>
+                  <span>{post.readTime}</span>
+                </div>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={sharePost}
+                  className="ml-auto flex items-center gap-2 px-4 py-2 rounded-lg bg-white/20 backdrop-blur-xl border border-white/30 text-white hover:bg-white/30 transition-all"
+                >
+                  <Share2 className="w-4 h-4" />
+                  <span className="font-medium">Share</span>
+                </motion.button>
+              </motion.div>
+            </motion.div>
+          </div>
+        </motion.div>
+      </motion.section>
+
+      {/* Content Section - Full Width, No Cards */}
+      <section className="relative py-16 md:py-24">
+        {/* Background Effects */}
+        <div className="absolute inset-0 opacity-30 dark:opacity-20">
+          <div className="absolute top-0 left-1/4 w-[400px] h-[400px] bg-primary/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-3xl" />
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
+          <motion.article
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto"
           >
-            <Button
-              variant="ghost"
-              onClick={() => navigate("/")}
-              className="mb-6"
-            >
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Home
-            </Button>
-
-            <span className="inline-block px-4 py-2 bg-primary text-primary-foreground text-sm font-semibold rounded-full mb-6">
-              {post.category}
-            </span>
-
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              {post.title}
-            </h1>
-
-            <div className="flex flex-wrap items-center gap-6 text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <User className="w-5 h-5" />
-                <span>{post.author}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Calendar className="w-5 h-5" />
-                <span>{post.date}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Clock className="w-5 h-5" />
-                <span>{post.readTime}</span>
-              </div>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={sharePost}
-                className="ml-auto"
-              >
-                <Share2 className="w-4 h-4 mr-2" />
-                Share
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </motion.section>
-
-      {/* Content */}
-      <section className="py-16">
-        <div className="container mx-auto px-4 sm:px-6">
-          <motion.article
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="max-w-3xl mx-auto glass-card p-8 md:p-12"
-          >
-            <div className="prose prose-lg max-w-none dark:prose-invert">
+            {/* Content */}
+            <div className="prose prose-xl max-w-none dark:prose-invert prose-headings:text-foreground prose-p:text-muted-foreground prose-p:leading-relaxed">
               {post.content.map((block: any, index: number) => {
                 if (block.type === "heading") {
                   return (
                     <motion.h2
                       key={index}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.1 * index }}
-                      className="text-3xl font-bold mt-12 mb-6 text-primary"
+                      initial={{ opacity: 0, x: -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, margin: "-100px" }}
+                      transition={{ duration: 0.6 }}
+                      className="text-3xl md:text-4xl font-bold mt-16 mb-8 text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent"
                     >
                       {block.text}
                     </motion.h2>
@@ -308,47 +398,93 @@ export default function BlogDetailPage() {
                     key={index}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.05 * index }}
-                    className="text-lg leading-relaxed mb-6 text-muted-foreground"
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                    className="text-lg md:text-xl leading-relaxed mb-8"
                   >
                     {block.text}
                   </motion.p>
                 );
               })}
             </div>
-          </motion.article>
 
-          {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-3xl mx-auto mt-16 text-center glass-card p-8"
-          >
-            <h3 className="text-2xl font-bold mb-4">
-              Want to Learn More About Our Programs?
-            </h3>
-            <p className="text-muted-foreground mb-6">
-              Schedule a visit or contact us to discuss your child's educational journey.
-            </p>
-            <Button
-              size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90"
-              onClick={() => {
-                navigate("/");
-                setTimeout(() => {
-                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-                }, 100);
-              }}
+            {/* Divider */}
+            <motion.div
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="my-16 h-px bg-gradient-to-r from-transparent via-border to-transparent"
+            />
+
+            {/* CTA Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="text-center py-16"
             >
-              Get in Touch
-            </Button>
-          </motion.div>
+              {/* Glass Effect Background */}
+              <div className="relative inline-block">
+                <div className="absolute -inset-8 bg-gradient-to-r from-primary/20 via-secondary/20 to-accent/20 rounded-3xl blur-3xl" />
+
+                <div className="relative backdrop-blur-xl bg-card/50 border border-border/50 rounded-3xl p-12 shadow-2xl">
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ type: "spring", stiffness: 200 }}
+                    className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center mx-auto mb-8 shadow-xl"
+                  >
+                    <Sparkles className="w-10 h-10 text-white" />
+                  </motion.div>
+
+                  <h3 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+                    Want to Learn More?
+                  </h3>
+                  <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+                    Schedule a visit or contact us to discuss your child's
+                    educational journey at TarbiyaX Academy.
+                  </p>
+
+                  <motion.button
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => {
+                      navigate("/");
+                      setTimeout(() => {
+                        document
+                          .getElementById("contact")
+                          ?.scrollIntoView({ behavior: "smooth" });
+                      }, 100);
+                    }}
+                    className="relative px-10 py-5 rounded-xl font-bold text-lg overflow-hidden group"
+                  >
+                    {/* Button Gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent blur-xl opacity-50 group-hover:opacity-75 transition-opacity" />
+
+                    {/* Button Content */}
+                    <span className="relative z-10 text-white flex items-center gap-3">
+                      Get in Touch
+                      <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </span>
+
+                    {/* Shine Effect */}
+                    <motion.div
+                      initial={{ x: "-100%" }}
+                      whileHover={{ x: "200%" }}
+                      transition={{ duration: 0.6 }}
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12"
+                    />
+                  </motion.button>
+                </div>
+              </div>
+            </motion.div>
+          </motion.article>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

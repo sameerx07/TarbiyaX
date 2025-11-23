@@ -62,9 +62,9 @@ export function Navigation() {
           {/* Logo */}
           <Link to="/" className="flex items-center group">
             <img 
-              src="/src/assets/logo.png" 
+              src="images/logo.png" 
               alt="TarbiyaX Logo" 
-              className="h-12 w-auto group-hover:scale-110 transition-transform"
+              className="h-14 w-auto group-hover:scale-110 transition-transform"
             />
           </Link>
 
