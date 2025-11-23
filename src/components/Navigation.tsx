@@ -101,7 +101,7 @@ export function Navigation() {
             </div>
 
             <Button
-              className="flex bg-primary text-primary-foreground hover:bg-primary"
+              className="flex bg-primary text-primary-foreground hover:bg-primary enroll-button-animation"
               asChild
             >
               <a href="#contact">Enroll Now</a>
@@ -138,7 +138,7 @@ export function Navigation() {
                   {link.label}
                 </a>
               ))}
-              <Button className="bg-primary text-primary-foreground mt-2" asChild>
+              <Button className="bg-primary text-primary-foreground mt-2 enroll-button-animation" asChild>
                 <a href="#contact">Enroll Now</a>
               </Button>
               <div className="flex items-center justify-between mt-4">

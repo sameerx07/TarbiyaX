@@ -257,10 +257,9 @@ export function FAQSection() {
                       {/* Question Icon */}
                       <div
                         className={`p-2.5 rounded-xl transition-all duration-300 ${
-                          openIndex === index
-                            ? "bg-primary/20 text-primary"
-                            : "bg-muted/50 text-muted-foreground"
-                        }`}
+                                                  openIndex === index
+                                                    ? "bg-gradient-to-r from-accent to-primary text-white shadow-md"
+                                                    : "bg-muted/50 text-muted-foreground"                        }`}
                       >
                         <HelpCircle className="w-5 h-5" />
                       </div>
@@ -284,7 +283,7 @@ export function FAQSection() {
                         transition={{ duration: 0.3 }}
                         className={`p-2 rounded-lg transition-colors ${
                           openIndex === index
-                            ? "bg-primary/20 text-primary"
+                            ? "bg-bg-gradient-to-br from-primary to-accent text-primary"
                             : "bg-muted/50 text-muted-foreground"
                         }`}
                       >
