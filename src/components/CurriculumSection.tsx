@@ -3,15 +3,18 @@ import { motion, useInView } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import {
   BookOpen,
+  Heart,
+  Users,
+  Award,
+  Sparkles,
+  Shield,
   Beaker,
   Calculator,
   Globe,
   Palette,
   Music,
-  Heart,
   Languages,
   ArrowRight,
-  Sparkles,
 } from "lucide-react";
 
 const subjects = [
@@ -99,7 +102,7 @@ const subjects = [
 
 export function CurriculumSection() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: false, margin: "-100px" });
   const navigate = useNavigate();
 
   return (
@@ -149,7 +152,7 @@ export function CurriculumSection() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent/30 bg-accent/10 backdrop-blur-sm  text-sm font-semibold uppercase tracking-wider mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent/30 bg-accent/10 backdrop-blur-sm text-sm font-semibold uppercase tracking-wider mb-6"
           >
             <BookOpen className="w-4 h-4" />
             Our Curriculum
@@ -157,7 +160,7 @@ export function CurriculumSection() {
 
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-foreground tracking-tight leading-tight">
             Comprehensive{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary via-primary to-accent animate-gradient-x">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary font-extrabold">
               Learning
             </span>
           </h2>
@@ -180,20 +183,20 @@ export function CurriculumSection() {
                 ease: [0.25, 0.4, 0.25, 1],
               }}
               whileHover={{ y: -8 }}
-              className="group relative"
+              className="group relative cursor-pointer"
             >
               {/* Card Glow Effect */}
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary via-secondary to-accent rounded-3xl opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500" />
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/70 to-accent/70 rounded-3xl opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500" />
 
               {/* Card */}
               <div
                 onClick={() => navigate(`/subject/${subject.id}`)}
-                className="relative glass-card overflow-hidden h-full cursor-pointer border-border/50 hover:border-primary/30 transition-all duration-500"
+                className="relative glass-card overflow-hidden h-full border-border/50 hover:border-primary/60 transition-all duration-500"
               >
                 {/* Image Section */}
                 <div className="relative h-48 overflow-hidden">
                   {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent z-10" />
 
                   {/* Image */}
                   <img
@@ -266,10 +269,10 @@ export function CurriculumSection() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="text-center mt-20"
         >
-          <p className="text-muted-foreground mb-6 text-lg">
+          {/* <p className="text-muted-foreground mb-6 text-lg">
             Want to learn more about our teaching methodology?
-          </p>
-          <motion.button
+          </p> */}
+          {/* <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => navigate("/curriculum")}
@@ -278,15 +281,17 @@ export function CurriculumSection() {
             <Sparkles className="w-5 h-5" />
             View Full Curriculum
             <ArrowRight className="w-5 h-5" />
-          </motion.button>
+          </motion.button> */}
 
           {/* Decorative Element */}
-          <div className="relative mt-12">
+          {/* <div className="relative mt-12">
             <div className="w-32 h-1 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full mx-auto" />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full blur-xl opacity-50" />
-          </div>
+          </div> */}
         </motion.div>
       </div>
     </section>
   );
 }
+
+export default CurriculumSection;

@@ -58,7 +58,7 @@ const blogPosts = [
 
 export function BlogSection() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: false, margin: "-100px" });
   const navigate = useNavigate();
 
   return (
@@ -116,7 +116,7 @@ export function BlogSection() {
 
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-foreground tracking-tight leading-tight">
             From Our{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent animate-gradient-x">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary  animate-gradient-x">
               Blog
             </span>
           </h2>
@@ -265,11 +265,11 @@ export function BlogSection() {
             <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary blur-xl opacity-50 group-hover:opacity-75 transition-opacity" />
 
             {/* Button Content */}
-            <span className="relative z-10 flex items-center gap-2">
+            {/* <span className="relative z-10 flex items-center gap-2">
               <Sparkles className="w-5 h-5" />
               View All Articles
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </span>
+            </span> */}
 
             {/* Shine Effect */}
             <motion.div
@@ -282,7 +282,7 @@ export function BlogSection() {
         </motion.div>
 
         {/* Bottom Decorative Element */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.8 }}
@@ -292,7 +292,7 @@ export function BlogSection() {
             <div className="w-32 h-1 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full blur-xl opacity-50" />
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

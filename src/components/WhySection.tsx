@@ -62,7 +62,7 @@ const features = [
 
 export function WhySection() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: false, margin: "-100px" });
 
   return (
     <section
@@ -71,11 +71,11 @@ export function WhySection() {
       className="py-24 relative overflow-hidden bg-gradient-to-b from-background via-background to-muted/10"
     >
       {/* Animated Mesh Gradient Background */}
-      <div className="absolute inset-0 opacity-20 dark:opacity-20">
+      {/* <div className="absolute inset-0 opacity-20 dark:opacity-20">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/20 via-transparent to-accent/20" />
         <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-gradient-to-l from-secondary/30 to-transparent rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-r from-accent/30 to-transparent rounded-full blur-3xl animate-pulse delay-700" />
-      </div>
+      </div> */}
 
       {/* Floating Orbs */}
       <motion.div
@@ -133,7 +133,7 @@ export function WhySection() {
 
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-foreground tracking-tight leading-tight">
             Excellence in{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent animate-gradient-x">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary animate-gradient-x">
               Every Aspect
             </span>
           </h2>
@@ -219,7 +219,7 @@ export function WhySection() {
         </div>
 
         {/* Bottom Decorative Element */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -229,7 +229,7 @@ export function WhySection() {
             <div className="w-32 h-1 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full blur-xl opacity-50" />
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

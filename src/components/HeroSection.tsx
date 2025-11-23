@@ -113,7 +113,7 @@ export function HeroSection() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 rounded-xl bg-primary text-primary-foreground font-semibold text-lg shadow-lg shadow-primary/25 hover:shadow-xl hover:bg-primary/90 transition-all flex items-center gap-2 group"
+                className="px-8 py-4 rounded-xl bg-primary text-primary-foreground font-semibold text-lg shadow-lg shadow-primary/25 hover:shadow-xl hover:bg-primary transition-all flex items-center gap-2 group"
               >
                 Start Admission
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

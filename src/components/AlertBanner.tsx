@@ -23,9 +23,7 @@ const CustomButton = ({ children, className = "", onClick, variant = "primary" }
   );
 };
 
-// Unique key for localStorage
-const STORAGE_KEY = "enrollment-banner-permanent-dismiss-v5";
-const WHATSAPP_NUMBER = "918978704174"; // Replace with your WhatsApp number (with country code, no + or spaces)
+const WHATSAPP_NUMBER = "918978704174"; // Your WhatsApp number (with country code, no + or spaces)
 const WHATSAPP_MESSAGE = "Hi! I'm interested in enrolling my child at TarbiyaX Academy. Can you provide more information?";
 
 export default function AlertBanner() {
@@ -33,24 +31,16 @@ export default function AlertBanner() {
   const [showCount, setShowCount] = useState(0);
 
   useEffect(() => {
-    // Check if the banner has been permanently dismissed
-    const isPermanentlyDismissed = localStorage.getItem(STORAGE_KEY);
-    if (isPermanentlyDismissed === "true") return;
-
-    // Show the banner after 2 seconds on first load
+    // Show banner 2 seconds after mount
     const initialTimer = setTimeout(() => {
       setIsVisible(true);
       setShowCount(1);
     }, 2000);
 
-    // Set up recurring interval to show banner every 30 seconds
+    // Show banner again every 30 seconds, even if it was closed temporarily
     const recurringTimer = setInterval(() => {
-      const currentPermanentDismiss = localStorage.getItem(STORAGE_KEY);
-      // Only check permanent dismiss, ignore temporary closes
-      if (currentPermanentDismiss !== "true") {
-        setIsVisible(true);
-        setShowCount((prev) => prev + 1);
-      }
+      setIsVisible(true);
+      setShowCount((prev) => prev + 1);
     }, 30000); // 30 seconds
 
     return () => {
@@ -59,29 +49,21 @@ export default function AlertBanner() {
     };
   }, []);
 
-  // Temporary close - banner will reappear in 30 seconds
+  // Temporary close - banner will reappear in 30 seconds (via interval)
   const handleClose = () => {
     setIsVisible(false);
-    // Don't save to localStorage - just hide temporarily
-  };
-
-  // Permanent dismiss - banner will never show again
-  const handlePermanentClose = () => {
-    setIsVisible(false);
-    // Permanently dismiss the banner
-    localStorage.setItem(STORAGE_KEY, "true");
   };
 
   const handleWhatsApp = () => {
     const encodedMessage = encodeURIComponent(WHATSAPP_MESSAGE);
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
     window.open(whatsappUrl, "_blank", "noopener,noreferrer");
-    handleClose(); // Temporary close - will reappear
+    handleClose(); // Temporarily close banner
   };
 
   const handleEnroll = () => {
-    handleClose(); // Temporary close - will reappear
-    // Scroll to contact section
+    handleClose(); // Temporarily close banner
+    // Scroll to contact section smoothly
     setTimeout(() => {
       const contactSection = document.getElementById("contact");
       if (contactSection) {
@@ -100,7 +82,7 @@ export default function AlertBanner() {
           transition={{ type: "spring", damping: 20, stiffness: 150 }}
           className="fixed bottom-6 left-6 z-50 w-96 max-w-[calc(100vw-3rem)]"
         >
-          {/* Glass Card with Premium Styling */}
+          {/* Glass Card */}
           <div className="relative group">
             {/* Glow Effect */}
             <div className="absolute -inset-0.5 bg-gradient-to-r from-primary via-secondary to-accent rounded-3xl opacity-30 blur-xl group-hover:opacity-40 transition-all duration-500" />
@@ -116,9 +98,8 @@ export default function AlertBanner() {
                 }}
               />
 
-              {/* Close Buttons */}
-              <div className="absolute top-3 right-3 flex gap-2">
-                {/* Temporary Close - Will reappear in 30 seconds */}
+              {/* Close Button */}
+              <div className="absolute top-3 right-3">
                 <motion.button
                   whileHover={{ scale: 1.1, rotate: 90 }}
                   whileTap={{ scale: 0.9 }}
@@ -128,18 +109,6 @@ export default function AlertBanner() {
                   title="Close (will reappear in 30s)"
                 >
                   <X className="w-4 h-4" />
-                </motion.button>
-
-                {/* Permanent Dismiss - Never show again */}
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  onClick={handlePermanentClose}
-                  className="text-muted-foreground hover:text-destructive transition-colors p-1.5 rounded-lg hover:bg-destructive/10 backdrop-blur-sm border border-destructive/20"
-                  aria-label="Dismiss Permanently"
-                  title="Don't show again (permanent)"
-                >
-                  <X className="w-4 h-4" strokeWidth={3} />
                 </motion.button>
               </div>
 
@@ -180,8 +149,7 @@ export default function AlertBanner() {
                     transition={{ delay: 0.3 }}
                     className="text-sm text-muted-foreground mb-5 leading-relaxed"
                   >
-                    Secure your child's spot for 2024-25. Limited seats
-                    available at TarbiyaX Academy.
+                    Secure your child's spot for 2024-25. Limited seats available at TarbiyaX Academy.
                   </motion.p>
 
                   {/* Action Buttons */}
@@ -191,7 +159,6 @@ export default function AlertBanner() {
                     transition={{ delay: 0.4 }}
                     className="flex gap-3"
                   >
-                    {/* WhatsApp Button */}
                     <CustomButton
                       className="flex-1 py-3"
                       variant="whatsapp"
@@ -201,7 +168,6 @@ export default function AlertBanner() {
                       WhatsApp
                     </CustomButton>
 
-                    {/* Enroll Button */}
                     <CustomButton
                       className="flex-1 py-3"
                       variant="primary"
@@ -213,11 +179,6 @@ export default function AlertBanner() {
                   </motion.div>
                 </div>
               </div>
-
-              {/* Show Counter (Optional - for debugging) */}
-              {/* <div className="absolute bottom-2 left-2 text-[10px] text-muted-foreground/50">
-                Shown: {showCount}x
-              </div> */}
             </div>
           </div>
         </motion.div>

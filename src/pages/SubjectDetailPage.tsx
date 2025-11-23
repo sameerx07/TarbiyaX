@@ -250,7 +250,7 @@ export default function SubjectDetailPage() {
 
   return (
     <div className="min-h-screen">
-      <Navigation />
+      {/* <Navigation /> */}
 
       {/* Hero Section */}
       <motion.section 

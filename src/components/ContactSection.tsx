@@ -40,7 +40,7 @@ const contactInfo = [
 
 export function ContactSection() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: false, margin: "-100px" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -106,11 +106,11 @@ export function ContactSection() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <div className="inline-block px-4 py-1.5 rounded-full border border-accent/30 bg-accent/10 text-accent-foreground text-sm font-semibold uppercase tracking-wider mb-6">
+          <div className="inline-block px-4 py-1.5 rounded-full border border-accent/30 bg-accent/10  text-sm font-semibold uppercase tracking-wider mb-6">
             Get In Touch
           </div>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-foreground tracking-tight">
-            Start Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Journey</span>
+            Start Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary">Journey</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
             Have questions about admissions or our curriculum? We're here to help. 

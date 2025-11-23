@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Moon, Sun, Menu, X, BookOpen } from "lucide-react";
+import { Moon, Sun, Menu, X } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
 
 export function Navigation() {
   const { theme, toggleTheme } = useTheme();
@@ -25,8 +28,8 @@ export function Navigation() {
     { href: "#curriculum", label: "Curriculum" },
     { href: "#teachers", label: "Teachers" },
     { href: "#blog", label: "Blog" },
-    { href: "#contact", label: "Contact" },
-  ];
+    { href: "#faq", label: "FAQ" },  
+];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
@@ -84,22 +87,21 @@ export function Navigation() {
           </div>
 
           {/* Actions */}
-          <div className="flex items-center gap-3">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleTheme}
-              className="rounded-full"
-            >
-              {theme === "light" ? (
-                <Moon className="w-5 h-5" />
-              ) : (
-                <Sun className="w-5 h-5" />
-              )}
-            </Button>
+          <div className="flex items-center gap-4">
+            <Input type="search" placeholder="Search..." className="hidden md:flex w-48" />
+            
+            <div className="hidden lg:flex items-center gap-2">
+              <Sun className="w-5 h-5" />
+              <Switch
+                checked={theme === 'dark'}
+                onCheckedChange={toggleTheme}
+                aria-label="Toggle theme"
+              />
+              <Moon className="w-5 h-5" />
+            </div>
 
             <Button
-              className="hidden sm:flex bg-primary text-primary-foreground hover:bg-primary/90"
+              className="flex bg-primary text-primary-foreground hover:bg-primary/90"
               asChild
             >
               <a href="#contact">Enroll Now</a>
@@ -125,7 +127,7 @@ export function Navigation() {
             exit={{ opacity: 0, height: 0 }}
             className="lg:hidden mt-4 glass-card p-4"
           >
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
@@ -139,6 +141,19 @@ export function Navigation() {
               <Button className="bg-primary text-primary-foreground mt-2" asChild>
                 <a href="#contact">Enroll Now</a>
               </Button>
+              <div className="flex items-center justify-between mt-4">
+                <Label htmlFor="theme-switch-mobile">Theme</Label>
+                <div className="flex items-center gap-2">
+                  <Sun className="w-5 h-5" />
+                  <Switch
+                    id="theme-switch-mobile"
+                    checked={theme === 'dark'}
+                    onCheckedChange={toggleTheme}
+                    aria-label="Toggle theme"
+                  />
+                  <Moon className="w-5 h-5" />
+                </div>
+              </div>
             </div>
           </motion.div>
         )}
