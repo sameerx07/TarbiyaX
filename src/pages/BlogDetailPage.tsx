@@ -11,7 +11,22 @@ import {
 } from "lucide-react";
 import { useEffect } from "react";
 
-const blogData: Record<string, any> = {
+interface ContentBlock {
+  type: "paragraph" | "heading";
+  text: string;
+}
+
+interface BlogPost {
+  title: string;
+  author: string;
+  date: string;
+  readTime: string;
+  category: string;
+  image: string;
+  content: ContentBlock[];
+}
+
+const blogData: Record<string, BlogPost> = {
   "building-character-through-islamic-education": {
     title: "Building Character Through Islamic Education",
     author: "Dr. Amina Hassan",

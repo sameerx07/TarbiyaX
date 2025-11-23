@@ -47,7 +47,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-background">
+    <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-background mt-[88px]">
       
       {/* --- Dynamic Background Layer --- */}
       <AnimatePresence mode="wait">

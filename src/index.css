@@ -12,7 +12,8 @@
     
     /* Pure Base */
     --background: 210 40% 98%;      /* Cool Off-White (Better for eyes than pure white) */
-    --foreground: 222 47% 11%;      /* Deep Navy (Softer than black) */
+    --foreground: 222 47% 11%;
+    --chat-bot-text: hsl(222 47% 11%); /* Blackish for light mode */
 
     /* Surface / Cards */
     --card: 0 0% 100%;
@@ -69,6 +70,7 @@
     /* Base */
     --background: 222 47% 11%;      /* Deep Navy Blue */
     --foreground: 210 40% 98%;      /* Soft White */
+    --chat-bot-text: hsl(210 40% 98%); /* Whiteish for dark mode */
 
     /* Surface */
     --card: 217 33% 17%;
@@ -187,3 +189,13 @@
 }
 
 
+html, body {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overscroll-behavior: none;
+  touch-action: manipulation;
+}
+
+input, textarea {
+  font-size: 16px !important; /* Prevent zoom on input focus */
+}

@@ -57,7 +57,7 @@ export function Navigation() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "glass-header shadow-lg" : "bg-transparent"
+        isScrolled ? "glass-header shadow-lg" : "bg-background"
       }`}
     >
       <nav className="container mx-auto px-4 sm:px-6 py-4">
@@ -101,7 +101,7 @@ export function Navigation() {
             </div>
 
             <Button
-              className="flex bg-primary text-primary-foreground hover:bg-primary/90"
+              className="flex bg-primary text-primary-foreground hover:bg-primary"
               asChild
             >
               <a href="#contact">Enroll Now</a>

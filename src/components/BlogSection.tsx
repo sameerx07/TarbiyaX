@@ -256,13 +256,13 @@ export function BlogSection() {
           className="flex justify-center mt-16"
         >
           <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => navigate("/blog")}
-            className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-primary to-secondary text-white font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden"
+            // whileHover={{ scale: 1.05 }}
+            // whileTap={{ scale: 0.95 }}
+            // onClick={() => navigate("/blog")}
+            // className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-primary to-secondary text-white font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden"
           >
             {/* Button Glow */}
-            <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary blur-xl opacity-50 group-hover:opacity-75 transition-opacity" />
+            {/* <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary blur-xl opacity-50 group-hover:opacity-75 transition-opacity" /> */}
 
             {/* Button Content */}
             {/* <span className="relative z-10 flex items-center gap-2">
