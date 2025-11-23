@@ -99,18 +99,14 @@ export default function AlertBanner() {
               />
 
               {/* Close Button */}
-              <div className="absolute top-3 right-3">
-                <motion.button
-                  whileHover={{ scale: 1.1, rotate: 90 }}
-                  whileTap={{ scale: 0.9 }}
-                  onClick={handleClose}
-                  className="text-muted-foreground hover:text-foreground transition-colors p-1.5 rounded-lg hover:bg-muted/50 backdrop-blur-sm"
-                  aria-label="Close Alert"
-                  title="Close (will reappear in 30s)"
-                >
-                  <X className="w-4 h-4" />
-                </motion.button>
-              </div>
+              <motion.button
+                onClick={handleClose}
+                className="absolute top-3 right-3 z-10 text-muted-foreground hover:text-foreground transition-colors p-2 rounded-lg hover:bg-muted/50 backdrop-blur-sm"
+                aria-label="Close Alert"
+                title="Close (will reappear in 30s)"
+              >
+                <X className="w-4 h-4" />
+              </motion.button>
 
               <div className="flex items-start gap-4 relative">
                 {/* Animated Icon */}

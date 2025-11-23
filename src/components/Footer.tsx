@@ -330,14 +330,14 @@ export function Footer() {
               viewport={{ once: true }}
               className="text-sm text-slate-500 flex items-center gap-1"
             >
-              © {new Date().getFullYear()} TarbiyaX Academy. Made with{" "}
+              © {new Date().getFullYear()} TarbiyaX - ILM Renaissance Academy. Made with{" "}
               <motion.span
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 1, repeat: Infinity }}
               >
                 <Heart className="w-3 h-3 text-red-500 fill-current" />
               </motion.span>{" "}
-              for our community.
+              for the humanity.
             </motion.p>
 
             <div className="flex gap-6">

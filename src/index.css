@@ -224,3 +224,10 @@ input, textarea {
     box-shadow: 0 0 10px hsl(var(--accent) / 0.8);
   }
 }
+
+@layer utilities {
+  .bg-accent-to-primary-gradient {
+  background-image: linear-gradient(to right, hsl(var(--accent)), hsl(var(--primary))) !important;
+}
+
+}
