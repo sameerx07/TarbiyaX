@@ -23,7 +23,7 @@ const CustomButton = ({ children, className = "", onClick, variant = "primary" }
   );
 };
 
-const WHATSAPP_NUMBER = "918978704174"; // Your WhatsApp number (with country code, no + or spaces)
+const WHATSAPP_NUMBER = "919160111120"; // Your WhatsApp number (with country code, no + or spaces)
 const WHATSAPP_MESSAGE = "Hi! I'm interested in enrolling my child at TarbiyaX Academy. Can you provide more information?";
 
 export default function AlertBanner() {
