@@ -15,6 +15,11 @@ export default {
       },
     },
     extend: {
+      screens: {
+        // ADD NEW BREAKPOINT: extra-small devices
+        'xs': '475px', 
+        "2xl": "1400px",
+      },
       fontFamily: {
         heading: ['Figtree', 'sans-serif'],
         body: ['Figtree', 'sans-serif'],

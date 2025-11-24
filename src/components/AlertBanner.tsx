@@ -80,8 +80,7 @@ export default function AlertBanner() {
           animate={{ x: 0, opacity: 1, scale: 1, rotateY: 0 }}
           exit={{ x: -400, opacity: 0, scale: 0.8, rotateY: -15 }}
           transition={{ type: "spring", damping: 20, stiffness: 150 }}
-          className="fixed bottom-6 left-6 z-50 w-96 max-w-[calc(100vw-3rem)]"
-        >
+className="fixed bottom-6 left-2 z-50 w-full max-w-sm md:w-96 max-w-[calc(100vw-3rem)]"        >
           {/* Glass Card */}
           <div className="relative group">
             {/* Glow Effect */}
@@ -135,7 +134,7 @@ export default function AlertBanner() {
                     initial={{ y: 10, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.2 }}
-                    className="font-extrabold text-xl text-foreground mb-2 leading-tight"
+                    className="font-extrabold text-xl text-foreground mb-2 leading-tight text-left"
                   >
                     🎓 Enrollment Open!
                   </motion.h3>
@@ -153,7 +152,7 @@ export default function AlertBanner() {
                     initial={{ y: 10, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.4 }}
-                    className="flex gap-3"
+                    className="flex gap-2"
                   >
                     <CustomButton
                       className="flex-1 py-3"

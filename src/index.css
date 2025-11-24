@@ -4,6 +4,15 @@
 @tailwind components;
 @tailwind utilities;
 
+#root {
+  /* max-width: 1280px; */
+  margin: 0 auto;
+  /* padding: 2rem; Keep this, but ensure body/html prevents overflow */
+  text-align: center;
+}
+
+
+
 @layer base {
   :root {
     /* LIGHT MODE: "Morning Clarity"
@@ -204,6 +213,7 @@ html, body {
   text-size-adjust: 100%;
   overscroll-behavior: none;
   touch-action: manipulation;
+  overflow-x: hidden;
 }
 
 input, textarea {

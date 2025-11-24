@@ -47,7 +47,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-background mt-[88px]">
+    <section className="relative min-h-screen w-full overflow-hidden flex items-center justify-center bg-background pt-24 pb-8 md:pt-32">
       
       {/* --- Dynamic Background Layer --- */}
       <AnimatePresence mode="wait">
@@ -76,8 +76,7 @@ export function HeroSection() {
       </AnimatePresence>
 
       {/* --- Main Content Layer --- */}
-      <div className="relative z-10 container mx-auto px-4 flex flex-col items-center justify-center text-center">
-        
+<div className="relative z-10 container mx-auto px-4 flex flex-col items-center justify-center text-center">        
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
@@ -136,8 +135,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl"
-        >
+className="grid grid-cols-1 gap-6 w-full max-w-4xl px-4 sm:grid-cols-3 sm:px-0"        >
           {stats.map((stat, idx) => (
             <div 
               key={idx} 
