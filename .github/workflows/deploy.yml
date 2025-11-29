@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Setup Node
@@ -24,12 +24,14 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Deploy to GoDaddy via FTP
+      - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          port: 21
+          protocol: ftp       # IMPORTANT: plain ftp
+          port: 21            # GoDaddy supports ONLY ftp/21
           local-dir: dist
           server-dir: /public_html
+          log-level: verbose
