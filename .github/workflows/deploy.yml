@@ -1,34 +1,39 @@
-name: Build and Deploy Vite App to GoDaddy
+name: Deploy Tarbiyax Landing Page
 
 on:
   push:
     branches:
-      - main
+      - main # Triggers on push to the main branch
 
 jobs:
-  build-and-deploy:
+  deploy_to_godaddy:
+    name: Build and Deploy via FTP
     runs-on: ubuntu-latest
-
+    
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    - name: 🛑 Checkout code
+      uses: actions/checkout@v4
+    
+    - name: ⚙️ Setup Node.js (v20)
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20' 
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build project
-        run: npm run build
-
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v3.1.1
-        with:
-          ftp-server: ftp://${{ secrets.FTP_HOST }}:21
-          ftp-username: ${{ secrets.FTP_USERNAME }}
-          ftp-password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: dist/
-          server-dir: /public_html
+    - name: 🚀 Install dependencies and Build (npm run build)
+      run: |
+        npm install
+        npm run build # Creates the 'dist' folder
+    
+    - name: 📤 Deploy to GoDaddy/cPanel
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.FTP_HOST }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        server-dir: ${{ secrets.FTP_PATH }}
+        local-dir: ./dist/ 
+        # Using ftps (FTP over TLS/SSL) is generally more secure than plain ftp
+        protocol: ftps 
+        # Delete files on the server that are not present locally (for clean deployments)
+        delete-local: true 
+        exclude: .git*
