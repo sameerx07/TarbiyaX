@@ -151,27 +151,27 @@ export function Footer() {
                 whileHover={{ x: 5 }}
                 className="flex items-start gap-3 text-sm text-slate-400 group cursor-pointer"
               >
-                <div className="relative">
+                {/* <div className="relative">
                   <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5 relative z-10" />
                   <div className="absolute inset-0 bg-primary rounded-full blur-md opacity-0 group-hover:opacity-50 transition-opacity" />
-                </div>
-                <span className="group-hover:text-slate-300 transition-colors">
+                </div> */}
+                {/* <span className="group-hover:text-slate-300 transition-colors">
                   123 Knowledge Avenue, <br />
                   Education City, ST 12345
-                </span>
+                </span> */}
               </motion.div>
               <motion.a
                 href="tel:+15551234567"
                 whileHover={{ x: 5 }}
                 className="flex items-center gap-3 text-sm text-slate-400 group"
               >
-                <div className="relative">
+                {/* <div className="relative">
                   <Phone className="w-5 h-5 text-primary shrink-0 relative z-10" />
                   <div className="absolute inset-0 bg-primary rounded-full blur-md opacity-0 group-hover:opacity-50 transition-opacity" />
                 </div>
                 <span className="group-hover:text-slate-300 transition-colors">
                   +1 (555) 123-4567
-                </span>
+                </span> */}
               </motion.a>
             </div>
 

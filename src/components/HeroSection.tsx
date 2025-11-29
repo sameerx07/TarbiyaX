@@ -108,7 +108,7 @@ export function HeroSection() {
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+            {/* <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -126,7 +126,7 @@ export function HeroSection() {
                 <PlayCircle className="w-5 h-5" />
                 Virtual Tour
               </motion.button>
-            </div>
+            </div> */}
           </motion.div>
         </AnimatePresence>
 
@@ -136,7 +136,7 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
 className="grid grid-cols-1 gap-6 w-full max-w-4xl px-4 sm:grid-cols-3 sm:px-0"        >
-          {stats.map((stat, idx) => (
+          {/* {stats.map((stat, idx) => (
             <div 
               key={idx} 
               className="glass-card p-6 flex items-center gap-4 group hover:-translate-y-1 transition-transform duration-300"
@@ -149,12 +149,12 @@ className="grid grid-cols-1 gap-6 w-full max-w-4xl px-4 sm:grid-cols-3 sm:px-0" 
                 <p className="text-sm text-muted-foreground font-medium">{stat.label}</p>
               </div>
             </div>
-          ))}
+          ))} */}
         </motion.div>
       </div>
 
       {/* --- Scroll Indicator --- */}
-      <motion.div
+      {/* <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground/50 flex flex-col items-center gap-2"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
@@ -167,7 +167,7 @@ className="grid grid-cols-1 gap-6 w-full max-w-4xl px-4 sm:grid-cols-3 sm:px-0" 
             transition={{ duration: 2, repeat: Infinity }}
           />
         </div>
-      </motion.div>
+      </motion.div> */}
     </section>
   );
 }

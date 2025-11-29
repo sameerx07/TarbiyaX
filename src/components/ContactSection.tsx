@@ -20,22 +20,22 @@ const contactInfo = [
     color: "text-emerald-500",
     bg: "bg-emerald-500/10",
   },
-  {
-    icon: MapPin,
-    title: "Visit Us",
-    value: "123 Education Lane, City, State",
-    link: "https://maps.google.com",
-    color: "text-orange-500",
-    bg: "bg-orange-500/10",
-  },
-  {
-    icon: Clock,
-    title: "Office Hours",
-    value: "Mon-Fri: 8:00 AM - 4:00 PM",
-    link: null,
-    color: "text-purple-500",
-    bg: "bg-purple-500/10",
-  },
+  // {
+  //   icon: MapPin,
+  //   title: "Visit Us",
+  //   value: "123 Education Lane, City, State",
+  //   link: "https://maps.google.com",
+  //   color: "text-orange-500",
+  //   bg: "bg-orange-500/10",
+  // },
+  // {
+  //   icon: Clock,
+  //   title: "Office Hours",
+  //   value: "Mon-Fri: 8:00 AM - 4:00 PM",
+  //   link: null,
+  //   color: "text-purple-500",
+  //   bg: "bg-purple-500/10",
+  // },
 ];
 
 export function ContactSection() {
@@ -262,10 +262,9 @@ export function ContactSection() {
             </div>
 
             {/* Stylized Map */}
-            <div className="glass-card p-2 overflow-hidden h-80 relative group">
+            {/* <div className="glass-card p-2 overflow-hidden h-80 relative group">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 z-0" />
               <div className="w-full h-full rounded-xl overflow-hidden relative z-10 bg-slate-100 dark:bg-slate-800">
-                {/* Abstract Map Representation */}
                 <div className="absolute inset-0 opacity-50" 
                      style={{ 
                        backgroundImage: 'radial-gradient(#cbd5e1 2px, transparent 2px)', 
@@ -282,7 +281,6 @@ export function ContactSection() {
                    </div>
                 </div>
               </div>
-              {/* Hover Overlay */}
               <a 
                 href="https://maps.google.com" 
                 target="_blank" 
@@ -293,7 +291,7 @@ export function ContactSection() {
                   Open in Maps
                 </button>
               </a>
-            </div>
+            </div> */}
 
           </motion.div>
         </div>
